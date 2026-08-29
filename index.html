@@ -557,6 +557,125 @@
     footer .footer-inner { flex-direction: column; align-items: flex-start; }
     .trustline { gap: 8px; }
   }
+
+  /* ── MODAL SUSCRIPCIÓN ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(12,12,12,.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s cubic-bezier(.22,1,.36,1), visibility 0.3s;
+  }
+  .modal-overlay.open { opacity: 1; visibility: visible; }
+
+  .modal {
+    background: var(--white);
+    color: var(--ink);
+    width: 100%;
+    max-width: 420px;
+    padding: clamp(28px, 5vw, 40px);
+    position: relative;
+    text-align: center;
+    transform: translateY(24px) scale(.98);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1), opacity 0.3s ease;
+  }
+  .modal-overlay.open .modal { transform: translateY(0) scale(1); opacity: 1; }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--ink-3);
+    line-height: 1;
+    padding: 6px;
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  .modal-close:hover { color: var(--ink); transform: rotate(90deg); }
+
+  .modal h3 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .modal .modal-sub {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.6;
+    margin-bottom: 26px;
+  }
+
+  .modal form { display: flex; flex-direction: column; gap: 14px; }
+
+  .modal-email {
+    width: 100%;
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--white);
+    border: 1px solid #E2E2E2;
+    border-radius: 0;
+    padding: 16px 18px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .modal-email::placeholder { color: var(--ink-3); }
+  .modal-email:focus { border-color: var(--ink); }
+  .modal-email.invalid { border-color: #E5484D; }
+
+  .modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background: var(--yellow);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 17px 24px;
+    border-radius: 0;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.12s ease, opacity 0.2s ease;
+  }
+  .modal-btn:hover:not(:disabled) { background: var(--ink); color: var(--white); }
+  .modal-btn:active:not(:disabled) { transform: scale(.98); }
+  .modal-btn:disabled { opacity: .6; cursor: default; }
+
+  .modal-status {
+    font-size: 13.5px;
+    line-height: 1.5;
+    min-height: 0;
+  }
+  .modal-status.success { color: #0E9F6E; font-weight: 600; }
+  .modal-status.error { color: #E5484D; font-weight: 500; }
+
+  /* spinner */
+  .spin-loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(12,12,12,.35);
+    border-top-color: var(--ink);
+    border-radius: 50%;
+    animation: loaderSpin 0.7s linear infinite;
+  }
+  .modal-btn:hover .spin-loader { border: 2px solid rgba(255,255,255,.35); border-top-color: var(--white); }
+  @keyframes loaderSpin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -577,10 +696,10 @@
     <span class="label reveal">La newsletter diaria de captación</span>
     <h1 class="reveal d1">Conseguí tu próximo cliente, <span class="hl">esta semana.</span></h1>
     <p class="hero-sub reveal d2"><strong>Aviso</strong> para los que van en serio: cada día te voy a incentivar a conseguir clientes. Si entrás, tenés que estar <strong>100% comprometido</strong>.</p>
-    <a href="https://de0aclientes.substack.com" class="btn-main reveal d3" target="_blank" rel="noopener">
+    <button type="button" class="btn-main reveal d3 js-open-modal">
       Suscribirme gratis
       <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg>
-    </a>
+    </button>
     <div class="trustline reveal d4">
       <span>Gratis</span><span class="dot"></span><span>Diaria</span><span class="dot"></span><span>Cero spam</span>
     </div>
@@ -707,10 +826,10 @@
     <span class="label reveal">La newsletter diaria de captación</span>
     <h2 class="reveal d1">Únete a los <span class="hl">211+</span> que ya consiguen clientes.</h2>
     <p class="perks reveal d2">Último aviso: te voy a incentivar a conseguir clientes todos los días.</p>
-    <a href="https://de0aclientes.substack.com" class="btn-main reveal d3" target="_blank" rel="noopener">
+    <button type="button" class="btn-main reveal d3 js-open-modal">
       Suscribirme gratis
       <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg>
-    </a>
+    </button>
     <div class="fine reveal d4">
       <span>Todos los días</span><span class="dot"></span><span>Sin spam</span><span class="dot"></span><span>Podés darte de baja cuando quieras</span>
     </div>
@@ -733,6 +852,46 @@
     <span class="footer-copy">© 2025 de0aclientes.com</span>
   </div>
 </footer>
+
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-overlay" id="subscribeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button type="button" class="modal-close js-close-modal" aria-label="Cerrar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+
+    <h3 id="modalTitle">Sumate gratis</h3>
+    <p class="modal-sub">Recibí De 0 a Clientes directamente en tu email.</p>
+
+    <!--
+      ══════════════════════════════════════════════════════════════════
+      ⚠️  CONFIGURACIÓN FORMSPREE  ⚠️
+      ══════════════════════════════════════════════════════════════════
+      Para guardar los emails:
+
+      1) Registrate gratis en https://formspree.io y creá un form nuevo.
+      2) Copiá tu URL (termina en /f/xxxx).
+      3) En el <script>, en la sección "CONFIG FORMSPREE", pegá tu URL en
+         la variable FORMSPREE_URL (reemplazá TU_CODIGO_AQUI).
+
+      Opcional (recomendado): en tu form de Formspree entrá a
+      Settings → Integrations → Google Sheets, y así cada email también
+      se vuelca automáticamente a una planilla de Google.
+
+      No hace falta tocar nada más de este bloque HTML.
+      ══════════════════════════════════════════════════════════════════
+    -->
+    <form id="subscribeForm" novalidate>
+      <input class="modal-email" type="email" id="subscribeEmail" name="email" placeholder="tu@email.com" autocomplete="email" required>
+      <button type="submit" class="modal-btn" id="modalSubmitBtn">
+        <span class="btn-label">Suscribirme gratis</span>
+        <span class="spin-loader" style="display:none;"></span>
+      </button>
+    </form>
+
+    <p class="modal-status" id="modalStatus" role="status" aria-live="polite"></p>
+  </div>
+</div>
 
 <script>
   // ── Reveal on scroll ──
@@ -810,6 +969,93 @@
     }
     requestAnimationFrame(anim);
   }
+
+  // ══════════════════════════════════════════════════════════════════
+  //  CONFIG FORMSPREE
+  //  1) Creá un form en https://formspree.io
+  //  2) Copiá tu URL (termina en /f/xxxx) y pegalá abajo en FORMSPREE_URL
+  // ══════════════════════════════════════════════════════════════════
+  const FORMSPREE_URL = 'https://formspree.io/f/moeqqowz';
+  // ══════════════════════════════════════════════════════════════════
+
+  const modalOverlay = document.getElementById('subscribeModal');
+  const modalForm = document.getElementById('subscribeForm');
+  const emailInput = document.getElementById('subscribeEmail');
+  const submitBtn = document.getElementById('modalSubmitBtn');
+  const btnLabel = submitBtn.querySelector('.btn-label');
+  const btnLoader = submitBtn.querySelector('.spin-loader');
+  const statusEl = document.getElementById('modalStatus');
+
+  function openModal() {
+    statusEl.textContent = '';
+    statusEl.className = 'modal-status';
+    emailInput.classList.remove('invalid');
+    emailInput.value = '';
+    modalOverlay.classList.add('open');
+    setTimeout(() => emailInput.focus(), 350);
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function setLoading(on) {
+    submitBtn.disabled = on;
+    btnLabel.textContent = on ? 'Enviando…' : 'Suscribirme gratis';
+    btnLoader.style.display = on ? '' : 'none';
+  }
+
+  function isValidEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  document.querySelectorAll('.js-open-modal').forEach(b => b.addEventListener('click', openModal));
+  document.querySelectorAll('.js-close-modal').forEach(b => b.addEventListener('click', closeModal));
+
+  modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  modalForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.textContent = '';
+    statusEl.className = 'modal-status';
+    emailInput.classList.remove('invalid');
+
+    const email = emailInput.value.trim();
+
+    if (!isValidEmail(email)) {
+      emailInput.classList.add('invalid');
+      statusEl.className = 'modal-status error';
+      statusEl.textContent = 'Ingresá un email válido.';
+      return;
+    }
+
+    setLoading(true);
+
+    const body = new URLSearchParams();
+    body.append('email', email);
+
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: email })
+      });
+      const data = await res.json();
+      if (!res.ok || data.errors) {
+        throw new Error('Formspree error');
+      }
+      statusEl.className = 'modal-status success';
+      statusEl.textContent = '¡Listo! Ya estás suscripto 🚀';
+      setTimeout(closeModal, 2200);
+    } catch (err) {
+      statusEl.className = 'modal-status error';
+      statusEl.textContent = 'Hubo un error al enviar. Intentá de nuevo.';
+    } finally {
+      setLoading(false);
+    }
+  });
 </script>
 
 </body>
