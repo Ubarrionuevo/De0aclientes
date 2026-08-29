@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -10,6 +10,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+  /* ================================================================
+     DE 0 A CLIENTES — CSS MOBILE-FIRST
+     Base = móvil (hasta 720px). Breakpoints:
+       min-width 721px  → tablet / desktop
+       min-width 1281px → iconos laterales decorativos
+     ================================================================ */
+
+  /* ── RESET / BASE ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -40,7 +48,7 @@
 
   :focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
 
-  .container { max-width: 1080px; margin: 0 auto; padding: 0 clamp(22px, 5vw, 48px); }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
 
   /* Labels editoriales */
   .label {
@@ -72,17 +80,18 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    height: 68px;
+    height: 62px;
     background: rgba(255,255,255,.9);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
-    padding: 0 clamp(22px, 5vw, 48px);
+    padding: 0 22px;
   }
   .nav-inner { max-width: 1080px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+
   .wordmark {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 800;
     color: var(--ink);
     letter-spacing: -0.02em;
@@ -108,14 +117,14 @@
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 26px;
+    gap: 22px;
   }
   .nav-link {
     background: none;
     border: none;
     cursor: pointer;
     font-family: var(--serif);
-    font-size: 13.5px;
+    font-size: 12.5px;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -141,28 +150,27 @@
   .hero {
     position: relative;
     text-align: center;
-    padding-top: clamp(36px, 4.5vw, 68px);
-    padding-bottom: clamp(60px, 8vw, 110px);
+    padding-top: 36px;
+    padding-bottom: 60px;
   }
   .hero .inner-hero { max-width: 840px; margin: 0 auto; }
 
-  .hero .label { margin-bottom: 26px; }
+  .hero .label { margin-bottom: 20px; }
 
   .hero h1 {
-    font-size: clamp(40px, 6vw, 80px);
+    font-size: 40px;
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.05;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     color: var(--ink);
   }
 
   .hero-sub {
-    font-size: 16.5px;
+    font-size: 15px;
     color: var(--ink-2);
-    max-width: 620px;
-    margin: 0 auto 40px;
     line-height: 1.7;
+    margin-bottom: 32px;
   }
   .hero-sub strong { color: var(--ink); font-weight: 600; }
 
@@ -174,9 +182,9 @@
     background: var(--yellow);
     color: var(--ink);
     font-family: var(--serif);
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
-    padding: 22px 40px;
+    padding: 17px 28px;
     border-radius: 0;
     border: none;
     cursor: pointer;
@@ -195,25 +203,25 @@
   .btn-main:active { transform: scale(.98); }
 
   .trustline {
-    margin-top: 26px;
-    font-size: 11.5px;
+    margin-top: 22px;
+    font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink-3);
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
     justify-content: center;
   }
   .dot { width: 4px; height: 4px; background: var(--yellow); border-radius: 50%; }
 
   /* ── PRUEBA SOCIAL ── */
-  .social-proof { text-align: center; padding-bottom: clamp(70px, 9vw, 120px); }
+  .social-proof { text-align: center; padding-bottom: 70px; }
 
   .counter {
-    font-size: clamp(90px, 15vw, 140px);
+    font-size: 90px;
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.03em;
@@ -223,12 +231,12 @@
   .counter .plus { color: var(--yellow); }
 
   .sp-countries-label {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-3);
-    margin-bottom: 44px;
+    margin-bottom: 32px;
   }
   .sp-countries-label b {
     color: var(--ink);
@@ -243,9 +251,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 9px;
     max-width: 760px;
     margin: 0 auto;
+    padding: 0 22px;
   }
   .chip {
     display: inline-flex;
@@ -280,15 +289,15 @@
     transform: rotate(-6deg);
   }
   .chip .cname {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--ink-2);
   }
 
-  /* ── ICONOS LATERALES (solo home) ── */
-  .gfx { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+  /* ── ICONOS LATERALES (solo home, desktop) ── */
+  .gfx { display: none; }
   .g-item { position: absolute; will-change: transform; }
   .g-in { display: block; }
   .g-am { color: var(--yellow); font-weight: 900; }
@@ -308,15 +317,15 @@
   @keyframes pulse { 0%,100%{ transform: scale(1);} 50%{ transform: scale(1.08);} }
 
   /* ── ARTÍCULOS ── */
-  .articles { padding: clamp(40px, 5vw, 70px) 0 clamp(70px, 9vw, 120px); }
+  .articles { padding: 40px 0 70px; }
   .articles-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: clamp(36px, 5vw, 60px);
+    margin-bottom: 36px;
   }
   .see-all {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -339,17 +348,17 @@
 
   .article {
     display: grid;
-    grid-template-columns: 64px 1fr auto;
-    gap: 24px;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
     align-items: start;
-    padding: clamp(26px, 4vw, 38px) 0;
+    padding: 28px 0;
     transition: transform 0.3s cubic-bezier(.22,1,.36,1);
   }
   .article + .article { border-top: 1px solid #ECECEC; }
   .article:hover { transform: translateX(6px); }
 
   .article-num {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
     color: var(--ink-3);
     letter-spacing: -0.02em;
@@ -357,7 +366,7 @@
   }
 
   .article-cat {
-    font-size: 10.5px;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -365,40 +374,40 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .article-cat::before { content:''; width:5px; height:5px; background: var(--yellow); }
 
   .article h3 {
-    font-size: clamp(22px, 3vw, 30px);
+    font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     transition: transform 0.3s cubic-bezier(.22,1,.36,1);
   }
   .article:hover h3 { transform: translateX(4px); }
 
   .article-excerpt {
-    font-size: 15px;
+    font-size: 14.5px;
     color: var(--ink-2);
     line-height: 1.65;
-    max-width: 640px;
   }
 
   .article-meta {
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-top: 18px;
+    margin-top: 16px;
+    flex-wrap: wrap;
   }
   .article-meta span {
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--ink-3);
     font-weight: 500;
   }
   .read-link {
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 700;
     color: var(--ink);
     display: inline-flex;
@@ -423,10 +432,12 @@
 
   .article-right {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
     gap: 12px;
-    padding-top: 4px;
+    grid-column: 2;
+    padding-top: 2px;
   }
 
   /* ── SECCIÓN DINERO ── */
@@ -434,14 +445,14 @@
     position: relative;
     overflow: hidden;
     text-align: center;
-    padding: clamp(70px, 10vw, 130px) 0;
+    padding: 70px 0;
   }
   .money-ghost {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    font-size: clamp(300px, 55vw, 600px);
+    font-size: 300px;
     font-weight: 900;
     color: var(--ink);
     opacity: .045;
@@ -451,10 +462,10 @@
   }
   @keyframes ghostSpin { from{ transform: translate(-50%,-50%) rotate(0deg);} to{ transform: translate(-50%,-50%) rotate(360deg);} }
 
-  .coin-wrap { display: flex; justify-content: center; margin-bottom: clamp(28px, 4vw, 44px); perspective: 900px; }
+  .coin-wrap { display: flex; justify-content: center; margin-bottom: 30px; perspective: 900px; }
   .coin {
-    width: 150px;
-    height: 150px;
+    width: 118px;
+    height: 118px;
     border-radius: 50%;
     background: radial-gradient(circle at 32% 30%, #FFF3A0 0%, var(--yellow) 55%, #E6B800 100%);
     display: flex;
@@ -467,12 +478,12 @@
   .coin::after {
     content: '';
     position: absolute;
-    inset: 12px;
+    inset: 10px;
     border-radius: 50%;
     border: 2px dashed rgba(12,12,12,.5);
   }
   .coin span {
-    font-size: 86px;
+    font-size: 66px;
     font-weight: 900;
     color: var(--ink);
     line-height: 1;
@@ -484,79 +495,74 @@
   }
 
   .money h2 {
-    font-size: clamp(32px, 5vw, 56px);
+    font-size: 32px;
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.1;
-    max-width: 820px;
-    margin: 0 auto 20px;
+    margin: 0 auto 18px;
   }
   .money .sub {
-    font-size: 16px;
+    font-size: 15.5px;
     color: var(--ink-2);
-    max-width: 520px;
-    margin: 0 auto 30px;
     line-height: 1.6;
+    margin: 0 auto 26px;
   }
   .money .footnote {
-    font-size: 13px;
+    font-size: 12.5px;
     font-style: italic;
     color: var(--ink-3);
-    max-width: 480px;
-    margin: 0 auto;
     line-height: 1.6;
+    margin: 0 auto;
   }
 
   /* ── CTA FINAL ── */
-  .final-cta { text-align: center; padding: clamp(60px, 8vw, 110px) 0; }
-  .final-cta .label { margin-bottom: 26px; }
+  .final-cta { text-align: center; padding: 60px 0; }
+  .final-cta .label { margin-bottom: 20px; }
   .final-cta h2 {
-    font-size: clamp(32px, 5vw, 56px);
+    font-size: 32px;
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.1;
-    max-width: 720px;
-    margin: 0 auto 22px;
+    margin: 0 auto 18px;
   }
   .final-cta .perks {
-    font-size: 16px;
+    font-size: 15.5px;
     color: var(--ink-2);
-    max-width: 520px;
-    margin: 0 auto 40px;
     line-height: 1.6;
+    margin: 0 auto 30px;
   }
+  .final-cta .perks strong { color: var(--ink); font-weight: 700; }
   .final-cta .fine {
-    margin-top: 26px;
-    font-size: 12px;
+    margin-top: 22px;
+    font-size: 11.5px;
     color: var(--ink-3);
     letter-spacing: 0.05em;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
   }
   .final-cta .fine .dot { width: 4px; height: 4px; }
 
   /* ── FOOTER ── */
-  footer { padding: clamp(36px, 5vw, 60px) 0 clamp(40px, 6vw, 70px); }
+  footer { padding: 36px 0 40px; }
   .footer-inner {
     max-width: 1080px;
     margin: 0 auto;
-    padding: 0 clamp(22px, 5vw, 48px);
+    padding: 0 22px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
   }
-  .footer-brand { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; }
-  .footer-links { display: flex; gap: 24px; align-items: center; }
-  .footer-links a { font-size: 13px; color: var(--ink-3); transition: color 0.15s ease; }
+  .footer-brand { font-size: 14px; font-weight: 800; letter-spacing: -0.02em; }
+  .footer-links { display: flex; gap: 22px; align-items: center; }
+  .footer-links a { font-size: 12.5px; color: var(--ink-3); transition: color 0.15s ease; }
   .footer-links a:hover { color: var(--ink); }
   .footer-x { color: var(--ink-3); display: inline-flex; transition: color 0.15s ease, transform 0.15s ease; }
   .footer-x:hover { color: var(--ink); transform: translateY(-1px); }
-  .footer-copy { font-size: 12.5px; color: var(--ink-3); }
+  .footer-copy { font-size: 12px; color: var(--ink-3); }
 
   /* ── REVEAL ── */
   .reveal {
@@ -571,28 +577,7 @@
   .d4 { transition-delay: 0.38s; }
   .d5 { transition-delay: 0.48s; }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1280px) {
-    .gfx { display: none; }
-  }
-
-  @media (max-width: 720px) {
-    nav { height: 62px; }
-    .wordmark { font-size: 16px; }
-    .hero { padding-bottom: 54px; }
-    .hero-sub { font-size: 15px; }
-    .btn-main { padding: 17px 28px; font-size: 15px; }
-    .article { grid-template-columns: 36px 1fr; gap: 16px; }
-    .article-right { flex-direction: row; justify-content: flex-start; grid-column: 2; align-items: center; padding-top: 4px; }
-    .chips { gap: 9px; }
-    .coin { width: 118px; height: 118px; }
-    .coin span { font-size: 66px; }
-    .coin::after { inset: 10px; }
-    footer .footer-inner { flex-direction: column; align-items: flex-start; }
-    .trustline { gap: 8px; }
-  }
-
-  /* ── MODAL SUSCRIPCIÓN ── */
+  /* ── MODAL SUSCRIPCIÓN (y "Próximamente") ── */
   .modal-overlay {
     position: fixed;
     inset: 0;
@@ -615,7 +600,7 @@
     color: var(--ink);
     width: 100%;
     max-width: 420px;
-    padding: clamp(28px, 5vw, 40px);
+    padding: 28px 24px;
     position: relative;
     text-align: center;
     transform: translateY(24px) scale(.98);
@@ -639,19 +624,20 @@
   .modal-close:hover { color: var(--ink); transform: rotate(90deg); }
 
   .modal h3 {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 800;
     letter-spacing: -0.02em;
     margin-bottom: 8px;
+    padding-right: 20px;
   }
   .modal .modal-sub {
-    font-size: 14.5px;
+    font-size: 14px;
     color: var(--ink-2);
     line-height: 1.6;
-    margin-bottom: 26px;
+    margin-bottom: 22px;
   }
 
-  .modal form { display: flex; flex-direction: column; gap: 14px; }
+  .modal form { display: flex; flex-direction: column; gap: 13px; }
 
   .modal-email {
     width: 100%;
@@ -661,7 +647,7 @@
     background: var(--white);
     border: 1px solid #E2E2E2;
     border-radius: 0;
-    padding: 16px 18px;
+    padding: 15px 18px;
     outline: none;
     transition: border-color 0.2s ease;
   }
@@ -678,9 +664,9 @@
     background: var(--yellow);
     color: var(--ink);
     font-family: var(--serif);
-    font-size: 16px;
+    font-size: 15.5px;
     font-weight: 700;
-    padding: 17px 24px;
+    padding: 16px 24px;
     border-radius: 0;
     border: none;
     cursor: pointer;
@@ -692,7 +678,7 @@
   .modal-btn:disabled { opacity: .6; cursor: default; }
 
   .modal-status {
-    font-size: 13.5px;
+    font-size: 13px;
     line-height: 1.5;
     min-height: 0;
   }
@@ -720,7 +706,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(24px, 5vw, 48px);
+    padding: 24px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s cubic-bezier(.22,1,.36,1), visibility 0.4s;
@@ -732,45 +718,45 @@
   .success-inner { max-width: 600px; }
 
   .success-badge {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: var(--yellow);
     color: var(--ink);
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 900;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 26px;
+    margin-bottom: 22px;
     animation: badgePop 0.5s cubic-bezier(.22,1,.36,1);
   }
   @keyframes badgePop { 0%{ transform: scale(0);} 100%{ transform: scale(1);} }
 
-  .success-screen .label { justify-content: center; margin-bottom: 18px; }
+  .success-screen .label { justify-content: center; margin-bottom: 16px; }
 
   .success-title {
-    font-size: clamp(26px, 4vw, 40px);
+    font-size: 26px;
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.15;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
   .success-title #successEmail { color: var(--ink-2); font-weight: 600; }
 
   .success-text {
-    font-size: 15.5px;
+    font-size: 15px;
     color: var(--ink-2);
     line-height: 1.7;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .success-text strong { color: var(--ink); font-weight: 700; }
 
   .success-signoff {
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: 600;
     color: var(--ink);
-    margin: 8px 0 34px;
+    margin: 8px 0 28px;
   }
 
   .success-actions {
@@ -779,7 +765,7 @@
     align-items: center;
     gap: 16px;
   }
-  .success-screen .btn-main { padding: 18px 34px; font-size: 16px; }
+  .success-screen .btn-main { padding: 17px 30px; font-size: 15px; }
 
   .success-social {
     display: inline-flex;
@@ -800,6 +786,88 @@
     text-underline-offset: 4px;
   }
   .success-social:hover { opacity: .8; }
+
+  /* ================================================================
+     BREAKPOINT ≥ 721px  (tablet / desktop)
+     ================================================================ */
+  @media (min-width: 721px) {
+    .container { padding: 0 clamp(22px, 5vw, 48px); }
+    nav { height: 68px; padding: 0 clamp(22px, 5vw, 48px); }
+    .wordmark { font-size: 18px; }
+    .nav-links { gap: 26px; }
+    .nav-link { font-size: 13.5px; }
+
+    .hero { padding-top: clamp(36px, 4.5vw, 68px); padding-bottom: clamp(60px, 8vw, 110px); }
+    .hero .label { margin-bottom: 26px; }
+    .hero h1 { font-size: clamp(52px, 6vw, 80px); margin-bottom: 28px; }
+    .hero-sub { font-size: 16.5px; max-width: 620px; margin: 0 auto 40px; }
+    .btn-main { font-size: 17px; padding: 22px 40px; }
+    .trustline { font-size: 11.5px; gap: 12px; margin-top: 26px; }
+
+    .social-proof { padding-bottom: clamp(70px, 9vw, 120px); }
+    .counter { font-size: clamp(120px, 15vw, 140px); }
+    .sp-countries-label { font-size: 12px; margin-bottom: 44px; }
+    .chips { gap: 12px; }
+    .chip .cname { font-size: 12px; }
+
+    .articles { padding: clamp(40px, 5vw, 70px) 0 clamp(70px, 9vw, 120px); }
+    .articles-head { margin-bottom: clamp(36px, 5vw, 60px); }
+    .see-all { font-size: 13px; }
+    .article { grid-template-columns: 64px 1fr auto; gap: 24px; padding: clamp(26px, 4vw, 38px) 0; }
+    .article-num { font-size: 20px; }
+    .article-cat { font-size: 10.5px; margin-bottom: 12px; }
+    .article h3 { font-size: clamp(24px, 3vw, 30px); margin-bottom: 12px; }
+    .article-excerpt { font-size: 15px; }
+    .article-meta { margin-top: 18px; }
+    .article-meta span { font-size: 12px; }
+    .read-link { font-size: 13px; }
+    .article-right { flex-direction: column; align-items: flex-end; gap: 12px; grid-column: auto; padding-top: 4px; }
+
+    .money { padding: clamp(70px, 10vw, 130px) 0; }
+    .money-ghost { font-size: clamp(300px, 55vw, 600px); }
+    .coin-wrap { margin-bottom: clamp(28px, 4vw, 44px); }
+    .coin { width: 150px; height: 150px; }
+    .coin::after { inset: 12px; }
+    .coin span { font-size: 86px; }
+    .money h2 { font-size: clamp(40px, 5vw, 56px); max-width: 820px; margin: 0 auto 20px; }
+    .money .sub { font-size: 16px; max-width: 520px; margin: 0 auto 30px; }
+    .money .footnote { font-size: 13px; max-width: 480px; }
+
+    .final-cta { padding: clamp(60px, 8vw, 110px) 0; }
+    .final-cta .label { margin-bottom: 26px; }
+    .final-cta h2 { font-size: clamp(40px, 5vw, 56px); max-width: 720px; margin: 0 auto 22px; }
+    .final-cta .perks { font-size: 16px; max-width: 520px; margin: 0 auto 40px; }
+    .final-cta .fine { font-size: 12px; gap: 12px; margin-top: 26px; }
+
+    footer { padding: clamp(36px, 5vw, 60px) 0 clamp(40px, 6vw, 70px); }
+    .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 20px; padding: 0 clamp(22px, 5vw, 48px); }
+    .footer-brand { font-size: 15px; }
+    .footer-links { gap: 24px; }
+    .footer-links a { font-size: 13px; }
+    .footer-copy { font-size: 12.5px; }
+
+    .modal { padding: clamp(28px, 5vw, 40px); }
+    .modal h3 { font-size: 26px; }
+    .modal .modal-sub { font-size: 14.5px; margin-bottom: 26px; }
+    .modal form { gap: 14px; }
+    .modal-email { padding: 16px 18px; }
+    .modal-btn { font-size: 16px; padding: 17px 24px; }
+
+    .success-screen { padding: clamp(24px, 5vw, 48px); }
+    .success-badge { width: 64px; height: 64px; font-size: 30px; margin-bottom: 26px; }
+    .success-screen .label { margin-bottom: 18px; }
+    .success-title { font-size: clamp(28px, 4vw, 40px); margin-bottom: 22px; }
+    .success-text { font-size: 15.5px; }
+    .success-signoff { font-size: 15px; margin: 8px 0 34px; }
+    .success-screen .btn-main { padding: 18px 34px; font-size: 16px; }
+  }
+
+  /* ================================================================
+     BREAKPOINT ≥ 1281px  (mostrar iconos laterales decorativos)
+     ================================================================ */
+  @media (min-width: 1281px) {
+    .gfx { display: block; position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+  }
 </style>
 </head>
 <body>
@@ -953,7 +1021,7 @@
   <div class="container">
     <span class="label reveal">La newsletter diaria de captación</span>
     <h2 class="reveal d1">Únete a los <span class="hl">215+</span> que ya consiguen clientes.</h2>
-    <p class="perks reveal d2">Último aviso: te voy a incentivar a conseguir clientes todos los días.</p>
+    <p class="perks reveal d2"><strong>Último aviso:</strong> te voy a incentivar a conseguir clientes todos los días.</p>
     <button type="button" class="btn-main reveal d3 js-open-modal">
       Suscribirme gratis
       <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg>
