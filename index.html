@@ -103,6 +103,34 @@
   }
   .nav-x:hover { opacity: 1; transform: translateY(-1px); }
 
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--serif);
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    padding: 4px 0;
+    position: relative;
+    transition: color 0.15s ease;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 2px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+  }
+  .nav-link:hover { color: var(--ink); }
+  .nav-link:hover::after { transform: scaleX(1); }
+
   /* ── HERO ── */
   .hero {
     position: relative;
@@ -676,6 +704,96 @@
   }
   .modal-btn:hover .spin-loader { border: 2px solid rgba(255,255,255,.35); border-top-color: var(--white); }
   @keyframes loaderSpin { to { transform: rotate(360deg); } }
+
+  /* ── PANTALLA DE ÉXITO ── */
+  .success-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(24px, 5vw, 48px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(.22,1,.36,1), visibility 0.4s;
+    text-align: center;
+    overflow-y: auto;
+  }
+  .success-screen.open { opacity: 1; visibility: visible; }
+
+  .success-inner { max-width: 600px; }
+
+  .success-badge {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--ink);
+    font-size: 30px;
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 26px;
+    animation: badgePop 0.5s cubic-bezier(.22,1,.36,1);
+  }
+  @keyframes badgePop { 0%{ transform: scale(0);} 100%{ transform: scale(1);} }
+
+  .success-screen .label { justify-content: center; margin-bottom: 18px; }
+
+  .success-title {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 22px;
+  }
+  .success-title #successEmail { color: var(--ink-2); font-weight: 600; }
+
+  .success-text {
+    font-size: 15.5px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .success-text strong { color: var(--ink); font-weight: 700; }
+
+  .success-signoff {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 8px 0 34px;
+  }
+
+  .success-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .success-screen .btn-main { padding: 18px 34px; font-size: 16px; }
+
+  .success-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    padding: 6px;
+  }
+  .success-social span {
+    color: var(--ink-2);
+    font-weight: 500;
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: var(--yellow);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+  }
+  .success-social:hover { opacity: .8; }
 </style>
 </head>
 <body>
@@ -684,6 +802,10 @@
 <nav>
   <div class="nav-inner">
     <span class="wordmark">De <span class="zero">0</span> a Clientes</span>
+    <div class="nav-links">
+      <button type="button" class="nav-link js-open-coming js-coming-servicios">Servicios</button>
+      <button type="button" class="nav-link js-open-coming js-coming-sobremi">Sobre mi</button>
+    </div>
     <a href="https://x.com/de0aclientes" class="nav-x" title="X / Twitter" target="_blank" rel="noopener">
       <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
@@ -841,17 +963,24 @@
   <div class="footer-inner">
     <span class="footer-brand">De <span class="zero">0</span> a Clientes</span>
     <div class="footer-links">
-      <a href="#">Newsletter</a>
-      <a href="#">Ejemplos</a>
-      <a href="#">Sobre el proyecto</a>
-      <a href="#">Privacidad</a>
       <a href="https://x.com/de0aclientes" class="footer-x" title="X / Twitter" target="_blank" rel="noopener">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </a>
     </div>
-    <span class="footer-copy">© 2025 de0aclientes.com</span>
+    <span class="footer-copy">© 2026 de0aclientes.com</span>
   </div>
 </footer>
+
+<!-- MODAL PRÓXIMAMENTE -->
+<div class="modal-overlay" id="comingModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <button type="button" class="modal-close js-close-coming" aria-label="Cerrar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <h3 id="comingTitle">Próximamente</h3>
+    <p class="modal-sub" id="comingSub">Más información en camino.</p>
+  </div>
+</div>
 
 <!-- MODAL SUSCRIPCIÓN -->
 <div class="modal-overlay" id="subscribeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -890,6 +1019,35 @@
     </form>
 
     <p class="modal-status" id="modalStatus" role="status" aria-live="polite"></p>
+  </div>
+</div>
+
+<!-- PANTALLA DE ÉXITO (post-suscripción) -->
+<div class="success-screen" id="successScreen">
+  <div class="success-inner">
+    <span class="success-badge">✓</span>
+    <span class="label">Suscripción confirmada</span>
+    <h2 class="success-title">¡Bienvenido a de<span class="zero">0</span>aclientes, <span id="successEmail"></span>!</h2>
+    <p class="success-text">
+      Te va a llegar <strong>diariamente</strong> un email incentivándote a buscar clientes:
+      tácticas, charlas con founders amigos, playbooks y más. <strong>NADA DE HUMO, NADA DE
+      CONSEJOS GENÉRICOS.</strong>
+    </p>
+    <p class="success-text">
+      Podés esperar el siguiente email o leer alguno de los artículos en Substack.
+      Te veo en cualquiera de los dos lados.
+    </p>
+    <p class="success-signoff">Saludos y a seguir creciendo. — Atte. Tito</p>
+
+    <div class="success-actions">
+      <a href="https://de0aclientes.substack.com" class="btn-main" target="_blank" rel="noopener">
+        Leer artículos en Substack
+        <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg>
+      </a>
+      <a href="https://x.com/titobarri0nuevo" class="success-social" target="_blank" rel="noopener">
+        Seguime en X
+      </a>
+    </div>
   </div>
 </div>
 
@@ -1000,6 +1158,12 @@
     document.body.style.overflow = '';
   }
 
+  function showSuccess(email) {
+    document.getElementById('successEmail').textContent = email;
+    document.getElementById('successScreen').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
   function setLoading(on) {
     submitBtn.disabled = on;
     btnLabel.textContent = on ? 'Enviando…' : 'Suscribirme gratis';
@@ -1015,6 +1179,37 @@
 
   modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  // ── Modal "Próximamente" (Servicios / Sobre mi) ──
+  const comingModal = document.getElementById('comingModal');
+  const comingTitle = document.getElementById('comingTitle');
+  const comingSub = document.getElementById('comingSub');
+
+  function openComing() {
+    comingModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeComing() {
+    comingModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  const comingInfo = {
+    'js-coming-servicios': ['Servicios', 'Más información sobre mis servicios, próximamente.'],
+    'js-coming-sobremi': ['Sobre mi', 'Más información sobre mí, próximamente.']
+  };
+
+  document.querySelectorAll('.js-open-coming').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const info = comingInfo[btn.classList.contains('js-coming-servicios') ? 'js-coming-servicios' : 'js-coming-sobremi'];
+      comingTitle.textContent = info[0];
+      comingSub.textContent = info[1];
+      openComing();
+    });
+  });
+  document.querySelectorAll('.js-close-coming').forEach(b => b.addEventListener('click', closeComing));
+  comingModal.addEventListener('click', (e) => { if (e.target === comingModal) closeComing(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeComing(); });
 
   modalForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -1046,9 +1241,8 @@
       if (!res.ok || data.errors) {
         throw new Error('Formspree error');
       }
-      statusEl.className = 'modal-status success';
-      statusEl.textContent = '¡Listo! Ya estás suscripto 🚀';
-      setTimeout(closeModal, 2200);
+      closeModal();
+      showSuccess(email);
     } catch (err) {
       statusEl.className = 'modal-status error';
       statusEl.textContent = 'Hubo un error al enviar. Intentá de nuevo.';
