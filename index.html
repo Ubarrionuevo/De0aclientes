@@ -12,9 +12,8 @@
 <style>
   /* ================================================================
      DE 0 A CLIENTES — CSS MOBILE-FIRST
-     Base = móvil (hasta 720px). Breakpoints:
+     Base = móvil (hasta 720px). Breakpoint:
        min-width 721px  → tablet / desktop
-       min-width 1281px → iconos laterales decorativos
      ================================================================ */
 
   /* ── RESET / BASE ── */
@@ -295,26 +294,6 @@
     text-transform: uppercase;
     color: var(--ink-2);
   }
-
-  /* ── ICONOS LATERALES (solo home, desktop) ── */
-  .gfx { display: none; }
-  .g-item { position: absolute; will-change: transform; }
-  .g-in { display: block; }
-  .g-am { color: var(--yellow); font-weight: 900; }
-  .g-ag { color: var(--green); font-weight: 900; }
-
-  .spin { animation: spin 9s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .tilt { transform-origin: bottom center; animation: tilt 3.2s ease-in-out infinite; }
-  @keyframes tilt { 0%,100%{ transform: rotate(7deg);} 50%{ transform: rotate(-7deg);} }
-
-  .bars { display: flex; align-items: flex-end; gap: 3px; height: 34px; }
-  .bar { width: 5px; background: var(--green); transform-origin: bottom; animation: breathe 2.4s ease-in-out infinite; }
-  @keyframes breathe { 0%,100%{ transform: scaleY(.35);} 50%{ transform: scaleY(1);} }
-
-  .trend-pulse { animation: pulse 2.8s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{ transform: scale(1);} 50%{ transform: scale(1.08);} }
 
   /* ── ARTÍCULOS ── */
   .articles { padding: 40px 0 70px; }
@@ -862,12 +841,6 @@
     .success-screen .btn-main { padding: 18px 34px; font-size: 16px; }
   }
 
-  /* ================================================================
-     BREAKPOINT ≥ 1281px  (mostrar iconos laterales decorativos)
-     ================================================================ */
-  @media (min-width: 1281px) {
-    .gfx { display: block; position: absolute; inset: 0; pointer-events: none; z-index: 5; }
-  }
 </style>
 </head>
 <body>
@@ -901,46 +874,6 @@
     </div>
   </div>
 
-  <!-- Iconos laterales decorativos -->
-  <div class="gfx" aria-hidden="true">
-    <div class="g-item" data-amp="14" data-speed="0.0011" data-phase="0" data-par="0.22" style="top:14%; left:6%;">
-      <span class="g-in g-am spin" style="font-size:54px;">$</span>
-    </div>
-    <div class="g-item" data-amp="10" data-speed="0.0014" data-phase="2" data-par="0.15" style="top:22%; right:7%;">
-      <span class="g-in g-ag spin" style="font-size:44px;" >$</span>
-    </div>
-    <div class="g-item" data-amp="18" data-speed="0.0009" data-phase="4" data-par="0.3" style="top:36%; left:10%;">
-      <span class="g-in tilt" style="display:flex; align-items:flex-end; gap:3px; height:34px;">
-        <span class="bar" style="animation-delay:0s;"></span>
-        <span class="bar" style="animation-delay:.2s; height:46px;"></span>
-        <span class="bar" style="animation-delay:.4s; height:24px;"></span>
-        <span class="bar" style="animation-delay:.6s; height:38px;"></span>
-      </span>
-    </div>
-    <div class="g-item" data-amp="12" data-speed="0.0012" data-phase="1" data-par="0.18" style="top:60%; right:9%;">
-      <span class="g-in g-am" style="font-size:58px;">$</span>
-    </div>
-    <div class="g-item" data-amp="20" data-speed="0.0010" data-phase="3" data-par="0.34" style="top:74%; left:8%;">
-      <span class="g-in trend-pulse">
-        <svg width="58" height="40" viewBox="0 0 58 40" fill="none" stroke="#12B76A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 30 L16 22 L26 28 L40 10 L50 16 L56 6"/>
-          <path d="M47 6 L56 6 L56 15"/>
-        </svg>
-      </span>
-    </div>
-    <div class="g-item" data-amp="16" data-speed="0.0013" data-phase="5" data-par="0.26" style="top:48%; right:14%;">
-      <span class="g-in tilt">
-        <svg width="46" height="56" viewBox="0 0 46 56" fill="none" stroke="#FFD400" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 2h38v52H4z"/>
-          <path d="M14 14h18M14 24h18M14 34h10"/>
-          <circle cx="32" cy="36" r="6" fill="#FFD400" stroke="none"/>
-        </svg>
-      </span>
-    </div>
-    <div class="g-item" data-amp="11" data-speed="0.0015" data-phase="6" data-par="0.12" style="top:82%; right:16%;">
-      <span class="g-in g-ag spin" style="font-size:38px;">$</span>
-    </div>
-  </div>
 </section>
 
 <!-- PRUEBA SOCIAL -->
@@ -1010,7 +943,7 @@
     <div class="coin-wrap reveal">
       <div class="coin"><span>$</span></div>
     </div>
-    <h2 class="reveal d1">Hecho para builders y developers que quieren <span class="hl">convertir lo que construyen</span> en clientes.</h2>
+    <h2 class="reveal d1">Hecho para builders que quieren <span class="hl">convertir lo que construyen</span> en clientes.</h2>
     <p class="sub reveal d2">Menos ruido, más acción. Si construís productos y no conseguís clientes, estás en el lugar correcto.</p>
     <p class="footnote reveal d3">*El $ gigante que gira detrás es decorativo. El único que genera, es tu próximo cliente.</p>
   </div>
@@ -1176,31 +1109,6 @@
   }, { threshold: 0.2 });
   if (chips.length) chipObserver.observe(chips[0].parentElement);
 
-  // ── Iconos laterales: float sinusoidal + parallax ──
-  const items = document.querySelectorAll('.g-item');
-  if (items.length && window.innerWidth > 1280) {
-    const data = Array.from(items).map(it => ({
-      el: it,
-      amp: parseFloat(it.dataset.amp) || 14,
-      speed: parseFloat(it.dataset.speed) || 0.0011,
-      phase: parseFloat(it.dataset.phase) || 0,
-      par: parseFloat(it.dataset.par) || 0.2,
-      baseTop: parseFloat(it.style.top) || 0,
-      baseLeft: parseFloat(it.style.left) || 0
-    }));
-
-    function anim() {
-      const scroll = window.pageYOffset || 0;
-      const t = performance.now();
-      data.forEach(d => {
-        const y = Math.sin(t * d.speed + d.phase) * d.amp;
-        const parallax = scroll * d.par;
-        d.el.style.transform = 'translate3d(0,' + (y + parallax) + 'px,0)';
-      });
-      requestAnimationFrame(anim);
-    }
-    requestAnimationFrame(anim);
-  }
 
   // ══════════════════════════════════════════════════════════════════
   //  CONFIG FORMSPREE
