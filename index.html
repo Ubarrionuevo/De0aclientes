@@ -494,6 +494,55 @@
     margin: 0 auto;
   }
 
+  /* ── SERVICIOS ── */
+  .services {
+    text-align: center;
+    padding: 70px 0;
+    border-top: 1px solid #ECECEC;
+  }
+  .services .label { margin-bottom: 20px; justify-content: center; }
+  .services h2 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 auto 18px;
+    max-width: 760px;
+  }
+  .services .sub {
+    font-size: 15.5px;
+    color: var(--ink-2);
+    line-height: 1.6;
+    margin: 0 auto 34px;
+    max-width: 560px;
+  }
+  .services .channels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+  .services .channel {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    border: 1px solid #ECECEC;
+    padding: 9px 16px;
+    transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  .services .channel:hover { border-color: var(--yellow); color: var(--ink); transform: translateY(-2px); }
+  .services .positioning {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--ink-3);
+    line-height: 1.6;
+    margin: 26px auto 0;
+    max-width: 560px;
+  }
+
   /* ── CTA FINAL ── */
   .final-cta { text-align: center; padding: 60px 0; }
   .final-cta .label { margin-bottom: 20px; }
@@ -812,6 +861,14 @@
     .money .sub { font-size: 16px; max-width: 520px; margin: 0 auto 30px; }
     .money .footnote { font-size: 13px; max-width: 480px; }
 
+    .services { padding: clamp(70px, 10vw, 130px) 0; }
+    .services .label { margin-bottom: 26px; }
+    .services h2 { font-size: clamp(40px, 5vw, 56px); max-width: 820px; }
+    .services .sub { font-size: 16px; max-width: 560px; }
+    .services .channels { gap: 12px; }
+    .services .channel { font-size: 12px; padding: 11px 18px; }
+    .services .positioning { font-size: 14px; }
+
     .final-cta { padding: clamp(60px, 8vw, 110px) 0; }
     .final-cta .label { margin-bottom: 26px; }
     .final-cta h2 { font-size: clamp(40px, 5vw, 56px); max-width: 720px; margin: 0 auto 22px; }
@@ -961,6 +1018,28 @@
     <div class="fine reveal d4">
       <span>Todos los días</span><span class="dot"></span><span>Sin spam</span><span class="dot"></span><span>Podés darte de baja cuando quieras</span>
     </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="services">
+  <div class="container">
+    <span class="label reveal">Servicios</span>
+    <h2 class="reveal d1">Encontramos dónde están tus próximos clientes y construimos el <span class="hl">sistema para llegar a ellos.</span></h2>
+    <p class="sub reveal d2">Analizamos tu producto, mercado y situación actual para identificar qué canal tiene más sentido para tu empresa. Después lo ponemos en marcha.</p>
+    <div class="channels reveal d3">
+      <span class="channel">Outbound</span>
+      <span class="channel">Contenido</span>
+      <span class="channel">Email</span>
+      <span class="channel">LinkedIn</span>
+      <span class="channel">SEO</span>
+      <span class="channel">Partnerships</span>
+    </div>
+    <a href="https://x.com/de0aclientes" class="btn-main reveal d4" target="_blank" rel="noopener">
+      Hablemos
+      <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg>
+    </a>
+    <p class="positioning reveal d4">Primero entendemos dónde están los clientes de una empresa. Después elegimos el canal adecuado y construimos el sistema para llegar a ellos.</p>
   </div>
 </section>
 
