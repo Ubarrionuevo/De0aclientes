@@ -496,10 +496,12 @@
 
   /* ── SERVICIOS ── */
   .services {
+    display: none;
     text-align: center;
     padding: 70px 0;
     border-top: 1px solid #ECECEC;
   }
+  .services.is-open { display: block; }
   .services .label { margin-bottom: 20px; justify-content: center; }
   .services h2 {
     font-size: 32px;
@@ -907,10 +909,10 @@
   <div class="nav-inner">
     <span class="wordmark">De <span class="zero">0</span> a Clientes</span>
     <div class="nav-links">
-      <button type="button" class="nav-link js-open-coming js-coming-servicios">Servicios</button>
+      <button type="button" class="nav-link js-open-servicios">Servicios</button>
       <button type="button" class="nav-link js-open-coming js-coming-sobremi">Sobre mi</button>
     </div>
-    <a href="https://x.com/de0aclientes" class="nav-x" title="X / Twitter" target="_blank" rel="noopener">
+    <a href="https://x.com/titobarri0nuevo" class="nav-x" title="X / Twitter" target="_blank" rel="noopener">
       <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
   </div>
@@ -1022,10 +1024,10 @@
 </section>
 
 <!-- SERVICIOS -->
-<section class="services">
+<section class="services" id="servicios">
   <div class="container">
     <span class="label reveal">Servicios</span>
-    <h2 class="reveal d1">Encontramos dónde están tus próximos clientes y construimos el <span class="hl">sistema para llegar a ellos.</span></h2>
+    <h2 class="reveal d1">Sabemos dónde están tus clientes. Construimos <span class="hl">el sistema para llegar a ellos.</span></h2>
     <p class="sub reveal d2">Analizamos tu producto, mercado y situación actual para identificar qué canal tiene más sentido para tu empresa. Después lo ponemos en marcha.</p>
     <div class="channels reveal d3">
       <span class="channel">Outbound</span>
@@ -1035,7 +1037,7 @@
       <span class="channel">SEO</span>
       <span class="channel">Partnerships</span>
     </div>
-    <a href="https://x.com/de0aclientes" class="btn-main reveal d4" target="_blank" rel="noopener">
+    <a href="mailto:ubarrionuevo137@gmail.com" class="btn-main reveal d4">
       Hablemos
       <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg>
     </a>
@@ -1048,7 +1050,7 @@
   <div class="footer-inner">
     <span class="footer-brand">De <span class="zero">0</span> a Clientes</span>
     <div class="footer-links">
-      <a href="https://x.com/de0aclientes" class="footer-x" title="X / Twitter" target="_blank" rel="noopener">
+      <a href="https://x.com/titobarri0nuevo" class="footer-x" title="X / Twitter" target="_blank" rel="noopener">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </a>
     </div>
@@ -1242,6 +1244,16 @@
   modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
+  // ── Sección Servicios (oculta por defecto) ──
+  const serviciosSection = document.getElementById('servicios');
+  document.querySelectorAll('.js-open-servicios').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!serviciosSection) return;
+      serviciosSection.classList.add('is-open');
+      setTimeout(() => serviciosSection.scrollIntoView({ behavior: 'smooth' }), 30);
+    });
+  });
+
   // ── Modal "Próximamente" (Servicios / Sobre mi) ──
   const comingModal = document.getElementById('comingModal');
   const comingTitle = document.getElementById('comingTitle');
@@ -1257,13 +1269,12 @@
   }
 
   const comingInfo = {
-    'js-coming-servicios': ['Servicios', 'Más información sobre mis servicios, próximamente.'],
     'js-coming-sobremi': ['Sobre mi', 'Más información sobre mí, próximamente.']
   };
 
   document.querySelectorAll('.js-open-coming').forEach(btn => {
     btn.addEventListener('click', () => {
-      const info = comingInfo[btn.classList.contains('js-coming-servicios') ? 'js-coming-servicios' : 'js-coming-sobremi'];
+      const info = comingInfo['js-coming-sobremi'];
       comingTitle.textContent = info[0];
       comingSub.textContent = info[1];
       openComing();
