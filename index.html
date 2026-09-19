@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>De 0 a Clientes</title>
-<meta name="description" content="Newsletter diaria de Tito sobre captación de clientes para freelancers, negocios y emprendedores tech. Conseguí tu próximo cliente esta semana.">
+<meta name="description" content="De 0 a Clientes es un ecosistema de media y productos: Media genera contenido, audiencia y distribución; Studio construye y comercializa productos digitales. Conseguí tu próximo cliente esta semana.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230C0C0C'/%3E%3Ccircle cx='43' cy='43' r='15' fill='%23FFD400'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +39,7 @@
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
   }
 
   a { color: inherit; text-decoration: none; }
@@ -79,15 +80,24 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    height: 62px;
+    min-height: 62px;
     background: rgba(255,255,255,.9);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
-    padding: 0 22px;
+    padding: 10px 22px;
   }
-  .nav-inner { max-width: 1080px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .nav-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 
   .wordmark {
     font-size: 16px;
@@ -111,19 +121,17 @@
   .nav-x:hover { opacity: 1; transform: translateY(-1px); }
 
   .nav-links {
-    display: none;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 22px;
+    gap: 14px;
   }
   .nav-link {
     background: none;
     border: none;
     cursor: pointer;
     font-family: var(--serif);
-    font-size: 12.5px;
+    font-size: 11.5px;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -144,6 +152,8 @@
   }
   .nav-link:hover { color: var(--ink); }
   .nav-link:hover::after { transform: scaleX(1); }
+  .nav-link.active { color: var(--ink); }
+  .nav-link.active::after { transform: scaleX(1); }
 
   /* ── HERO ── */
   .hero {
@@ -422,81 +432,6 @@
     padding-top: 2px;
   }
 
-  /* ── SECCIÓN DINERO ── */
-  .money {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    padding: 70px 0;
-  }
-  .money-ghost {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    font-size: 300px;
-    font-weight: 900;
-    color: var(--ink);
-    opacity: .045;
-    line-height: 1;
-    pointer-events: none;
-    animation: ghostSpin 40s linear infinite;
-  }
-  @keyframes ghostSpin { from{ transform: translate(-50%,-50%) rotate(0deg);} to{ transform: translate(-50%,-50%) rotate(360deg);} }
-
-  .coin-wrap { display: flex; justify-content: center; margin-bottom: 30px; perspective: 900px; }
-  .coin {
-    width: 118px;
-    height: 118px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 32% 30%, #FFF3A0 0%, var(--yellow) 55%, #E6B800 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    animation: coinSpin 3s cubic-bezier(.22,1,.36,1) infinite;
-    transform-style: preserve-3d;
-  }
-  .coin::after {
-    content: '';
-    position: absolute;
-    inset: 10px;
-    border-radius: 50%;
-    border: 2px dashed rgba(12,12,12,.5);
-  }
-  .coin span {
-    font-size: 66px;
-    font-weight: 900;
-    color: var(--ink);
-    line-height: 1;
-  }
-  @keyframes coinSpin {
-    0% { transform: rotateY(0deg); }
-    55% { transform: rotateY(200deg); }
-    100% { transform: rotateY(200deg); }
-  }
-
-  .money h2 {
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin: 0 auto 18px;
-  }
-  .money .sub {
-    font-size: 15.5px;
-    color: var(--ink-2);
-    line-height: 1.6;
-    margin: 0 auto 26px;
-  }
-  .money .footnote {
-    font-size: 12.5px;
-    font-style: italic;
-    color: var(--ink-3);
-    line-height: 1.6;
-    margin: 0 auto;
-  }
-
   /* ── CTA FINAL ── */
   .final-cta { text-align: center; padding: 60px 0; }
   .final-cta .label { margin-bottom: 20px; }
@@ -625,7 +560,7 @@
   .modal-email {
     width: 100%;
     font-family: var(--serif);
-    font-size: 15px;
+    font-size: 16px;
     color: var(--ink);
     background: var(--white);
     border: 1px solid #E2E2E2;
@@ -775,9 +710,9 @@
      ================================================================ */
   @media (min-width: 721px) {
     .container { padding: 0 clamp(22px, 5vw, 48px); }
-    nav { height: 68px; padding: 0 clamp(22px, 5vw, 48px); }
+    nav { height: 68px; min-height: 68px; padding: 0 clamp(22px, 5vw, 48px); }
     .wordmark { font-size: 18px; }
-    .nav-links { display: flex; gap: 26px; }
+    .nav-links { display: flex; gap: 26px; position: absolute; left: 50%; transform: translateX(-50%); }
     .nav-link { font-size: 13.5px; }
 
     .hero { padding-top: clamp(36px, 4.5vw, 68px); padding-bottom: clamp(60px, 8vw, 110px); }
@@ -805,16 +740,6 @@
     .article-meta span { font-size: 12px; }
     .read-link { font-size: 13px; }
     .article-right { flex-direction: column; align-items: flex-end; gap: 12px; grid-column: auto; padding-top: 4px; }
-
-    .money { padding: clamp(70px, 10vw, 130px) 0; }
-    .money-ghost { font-size: clamp(300px, 55vw, 600px); }
-    .coin-wrap { margin-bottom: clamp(28px, 4vw, 44px); }
-    .coin { width: 150px; height: 150px; }
-    .coin::after { inset: 12px; }
-    .coin span { font-size: 86px; }
-    .money h2 { font-size: clamp(40px, 5vw, 56px); max-width: 820px; margin: 0 auto 20px; }
-    .money .sub { font-size: 16px; max-width: 520px; margin: 0 auto 30px; }
-    .money .footnote { font-size: 13px; max-width: 480px; }
 
     .final-cta { padding: clamp(60px, 8vw, 110px) 0; }
     .final-cta .label { margin-bottom: 26px; }
@@ -845,6 +770,150 @@
     .success-screen .btn-main { padding: 18px 34px; font-size: 16px; }
   }
 
+  /* ── TICKER / BANNER CON MOTION ── */
+  .marquee {
+    position: relative;
+    z-index: 80;
+    display: block;
+    overflow: hidden;
+    background: var(--yellow);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .marquee-track {
+    display: flex;
+    min-width: 200%;
+    animation: marqueeMove 26s linear infinite;
+  }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 34px;
+    padding: 13px 17px;
+  }
+  .marquee-group span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .marq-dot { opacity: .4; }
+  .marq-arrow { font-weight: 900; }
+  .marq-cta {
+    background: var(--ink);
+    color: #FFFFFF;
+    padding: 6px 14px;
+    border-radius: 999px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
+  }
+  @keyframes marqueeMove {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── ECOSISTEMA (MEDIA + STUDIO) ── */
+  .ecosystem {
+    text-align: center;
+    padding: 60px 0;
+  }
+  .ecosystem .label { margin-bottom: 18px; justify-content: center; }
+  .ecosystem h2 {
+    font-size: clamp(28px, 7.5vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    margin: 0 auto 14px;
+    max-width: 20ch;
+  }
+  .ecosystem .sub {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    margin: 0 auto 34px;
+    max-width: 560px;
+  }
+  .ecosystem .sub strong { color: var(--ink); font-weight: 700; }
+
+  .eco-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    text-align: left;
+  }
+  .eco-card {
+    display: block;
+    border: 1px solid #ECECEC;
+    padding: 28px 24px;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .eco-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--yellow);
+    box-shadow: 0 12px 26px rgba(12,12,12,.08);
+  }
+  .eco-kicker {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--yellow);
+    padding: 6px 9px;
+    margin-bottom: 18px;
+  }
+  .eco-card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .eco-card p {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+  .eco-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .eco-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 2px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+  }
+  .eco-card:hover .eco-link::after { transform: scaleX(1); }
+  .eco-link svg { transition: transform 0.3s cubic-bezier(.22,1,.36,1); }
+  .eco-card:hover .eco-link svg { transform: translateX(4px); }
+
+  @media (min-width: 721px) {
+    .ecosystem { padding: clamp(60px, 8vw, 110px) 0; }
+    .ecosystem .label { margin-bottom: 26px; }
+    .ecosystem h2 { font-size: clamp(38px, 5vw, 52px); margin-bottom: 18px; }
+    .ecosystem .sub { font-size: 16px; margin-bottom: 44px; }
+    .eco-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .eco-card { padding: clamp(28px, 4vw, 38px); }
+    .eco-card h3 { font-size: 24px; }
+    .eco-card p { font-size: 15px; }
+  }
 </style>
 </head>
 <body>
@@ -852,10 +921,10 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <span class="wordmark">De <span class="zero">0</span> a Clientes</span>
+    <a href="index.html" class="wordmark">De <span class="zero">0</span> a Clientes</a>
     <div class="nav-links">
-      <a href="servicios.html" class="nav-link">Servicios</a>
-      <button type="button" class="nav-link js-open-coming js-coming-sobremi">Sobre mi</button>
+      <a href="index.html" class="nav-link active">Media</a>
+      <a href="studio.html" class="nav-link">Studio</a>
     </div>
     <a href="https://x.com/titobarri0nuevo" class="nav-x" title="X / Twitter" target="_blank" rel="noopener">
       <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -863,9 +932,104 @@
   </div>
 </nav>
 
+<!-- TICKER -->
+<a href="studio.html#funcionales" class="marquee" aria-label="De 0 a Clientes. Conocelos">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <span>De 0 a Clientes</span>
+      <span class="marq-dot">•</span>
+      <span>3 proyectos funcionando hoy</span>
+      <span class="marq-dot">•</span>
+      <span>11 proyectos</span>
+      <span class="marq-dot">•</span>
+      <span>3 casi funcionaron</span>
+      <span class="marq-dot">•</span>
+      <span>3 funcionando</span>
+      <span class="marq-dot">•</span>
+      <span>5 fracasos</span>
+      <span class="marq-dot">•</span>
+      <span>Media</span>
+      <span class="marq-dot">•</span>
+      <span>Studio</span>
+      <span class="marq-dot">•</span>
+      <span class="marq-cta">3 proyectos que están facturando hoy →</span>
+      <span class="marq-dot">•</span>
+      <span>Conocelos</span>
+      <span class="marq-arrow">→</span>
+    </div>
+    <div class="marquee-group">
+      <span>De 0 a Clientes</span>
+      <span class="marq-dot">•</span>
+      <span>3 proyectos funcionando hoy</span>
+      <span class="marq-dot">•</span>
+      <span>11 proyectos</span>
+      <span class="marq-dot">•</span>
+      <span>3 casi funcionaron</span>
+      <span class="marq-dot">•</span>
+      <span>3 funcionando</span>
+      <span class="marq-dot">•</span>
+      <span>5 fracasos</span>
+      <span class="marq-dot">•</span>
+      <span>Media</span>
+      <span class="marq-dot">•</span>
+      <span>Studio</span>
+      <span class="marq-dot">•</span>
+      <span class="marq-cta">3 proyectos que están facturando hoy →</span>
+      <span class="marq-dot">•</span>
+      <span>Conocelos</span>
+      <span class="marq-arrow">→</span>
+    </div>
+    <div class="marquee-group">
+      <span>De 0 a Clientes</span>
+      <span class="marq-dot">•</span>
+      <span>3 proyectos funcionando hoy</span>
+      <span class="marq-dot">•</span>
+      <span>11 proyectos</span>
+      <span class="marq-dot">•</span>
+      <span>3 casi funcionaron</span>
+      <span class="marq-dot">•</span>
+      <span>3 funcionando</span>
+      <span class="marq-dot">•</span>
+      <span>5 fracasos</span>
+      <span class="marq-dot">•</span>
+      <span>Media</span>
+      <span class="marq-dot">•</span>
+      <span>Studio</span>
+      <span class="marq-dot">•</span>
+      <span class="marq-cta">3 proyectos que están facturando hoy →</span>
+      <span class="marq-dot">•</span>
+      <span>Conocelos</span>
+      <span class="marq-arrow">→</span>
+    </div>
+    <div class="marquee-group">
+      <span>De 0 a Clientes</span>
+      <span class="marq-dot">•</span>
+      <span>3 proyectos funcionando hoy</span>
+      <span class="marq-dot">•</span>
+      <span>11 proyectos</span>
+      <span class="marq-dot">•</span>
+      <span>3 casi funcionaron</span>
+      <span class="marq-dot">•</span>
+      <span>3 funcionando</span>
+      <span class="marq-dot">•</span>
+      <span>5 fracasos</span>
+      <span class="marq-dot">•</span>
+      <span>Media</span>
+      <span class="marq-dot">•</span>
+      <span>Studio</span>
+      <span class="marq-dot">•</span>
+      <span class="marq-cta">3 proyectos que están facturando hoy →</span>
+      <span class="marq-dot">•</span>
+      <span>Conocelos</span>
+      <span class="marq-arrow">→</span>
+    </div>
+  </div>
+</a>
+
 <!-- HERO -->
 <section class="hero">
   <div class="inner-hero">
+    <span class="label reveal">De 0 a Clientes · Media</span>
     <h1 class="reveal d1">Conseguí tu próximo cliente, <span class="hl">esta semana.</span></h1>
     <p class="hero-sub reveal d2"><strong>Aviso</strong> para los que van en serio: cada día te voy a incentivar a conseguir clientes. Si entrás, tenés que estar <strong>100% comprometido</strong>.</p>
     <button type="button" class="btn-main reveal d3 js-open-modal">
@@ -879,11 +1043,38 @@
 
 </section>
 
+<!-- ECOSISTEMA -->
+<section class="ecosystem">
+  <div class="container">
+    <span class="label reveal">De 0 a Clientes</span>
+    <h2 class="reveal d1">Un ecosistema de <span class="hl">media y productos</span></h2>
+    <p class="sub reveal d2"><strong>Media</strong> genera contenido, audiencia y distribución. <strong>Studio</strong> construye y comercializa productos.</p>
+    <div class="eco-grid">
+      <a href="#articulos" class="eco-card reveal">
+        <span class="eco-kicker">Media</span>
+        <h3>Contenido y audiencia</h3>
+        <p>Newsletter, artículos, casos, entrevistas y experimentos que generan distribución.</p>
+        <span class="eco-link">Ver contenido
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg>
+        </span>
+      </a>
+      <a href="studio.html" class="eco-card reveal d1">
+        <span class="eco-kicker">Studio</span>
+        <h3>Productos en construcción</h3>
+        <p>De 0 a Clientes Studio es donde los productos se crean, se lanzan y se validan.</p>
+        <span class="eco-link">Entrar a Studio
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- PRUEBA SOCIAL -->
 <section class="social-proof">
   <div class="container reveal">
     <div class="counter"><span id="counter">0</span><span class="plus">+</span></div>
-    <p class="sp-countries-label">Builders y founders en <b>14</b> países</p>
+    <p class="sp-countries-label">Usuarios de la comunidad en <b>14</b> países</p>
   </div>
   <div class="chips" id="chips">
     <span class="chip" style="--d:0ms"><span class="iso">AR</span><span class="cname">Argentina</span></span>
@@ -904,7 +1095,7 @@
 </section>
 
 <!-- ARTÍCULOS -->
-<section class="articles">
+<section class="articles" id="articulos">
   <div class="container">
     <div class="articles-head reveal">
       <span class="label">Artículos recientes</span>
@@ -939,24 +1130,11 @@
   </div>
 </section>
 
-<!-- SECCIÓN DINERO -->
-<section class="money">
-  <span class="money-ghost" aria-hidden="true">$</span>
-  <div class="container">
-    <div class="coin-wrap reveal">
-      <div class="coin"><span>$</span></div>
-    </div>
-    <h2 class="reveal d1">Ventas y marketing para quienes construyen empresas.</h2>
-    <p class="sub reveal d2">Menos ruido, más acción. Ideas, estrategias y herramientas para conseguir clientes, construir audiencia y hacer crecer tu negocio.</p>
-    <p class="footnote reveal d3">*El $ gigante que gira detrás es decorativo. El único que genera, es tu próximo cliente.</p>
-  </div>
-</section>
-
 <!-- CTA FINAL -->
 <section class="final-cta" id="suscribirse">
   <div class="container">
-    <span class="label reveal">La newsletter diaria de captación</span>
-    <h2 class="reveal d1">Únete a los <span class="hl">400+</span> que ya consiguen clientes.</h2>
+    <span class="label reveal">El ecosistema De 0 a Clientes</span>
+    <h2 class="reveal d1">Únete a los <span class="hl">450+</span> que ya consiguen clientes.</h2>
     <p class="perks reveal d2"><strong>Último aviso:</strong> te voy a incentivar a conseguir clientes todos los días.</p>
     <button type="button" class="btn-main reveal d3 js-open-modal">
       Suscribirme gratis
@@ -980,17 +1158,6 @@
     <span class="footer-copy">© 2026 de0aclientes.com</span>
   </div>
 </footer>
-
-<!-- MODAL PRÓXIMAMENTE -->
-<div class="modal-overlay" id="comingModal" role="dialog" aria-modal="true">
-  <div class="modal">
-    <button type="button" class="modal-close js-close-coming" aria-label="Cerrar">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <h3 id="comingTitle">Próximamente</h3>
-    <p class="modal-sub" id="comingSub">Más información en camino.</p>
-  </div>
-</div>
 
 <!-- MODAL SUSCRIPCIÓN -->
 <div class="modal-overlay" id="subscribeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -1084,7 +1251,7 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         counterObserver.unobserve(entry.target);
-        const target = 400;
+        const target = 450;
         const duration = 1400;
         let start = null;
         function tick(ts) {
@@ -1166,36 +1333,6 @@
 
   modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-  // ── Modal "Próximamente" (Servicios / Sobre mi) ──
-  const comingModal = document.getElementById('comingModal');
-  const comingTitle = document.getElementById('comingTitle');
-  const comingSub = document.getElementById('comingSub');
-
-  function openComing() {
-    comingModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeComing() {
-    comingModal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  const comingInfo = {
-    'js-coming-sobremi': ['Sobre mi', 'Más información sobre mí, próximamente.']
-  };
-
-  document.querySelectorAll('.js-open-coming').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const info = comingInfo['js-coming-sobremi'];
-      comingTitle.textContent = info[0];
-      comingSub.textContent = info[1];
-      openComing();
-    });
-  });
-  document.querySelectorAll('.js-close-coming').forEach(b => b.addEventListener('click', closeComing));
-  comingModal.addEventListener('click', (e) => { if (e.target === comingModal) closeComing(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeComing(); });
 
   modalForm.addEventListener('submit', async (e) => {
     e.preventDefault();
