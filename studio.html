@@ -1256,6 +1256,48 @@
     }
 }
 
+    /* ── EN CONSTRUCCIÓN ── */
+
+    .build-content {
+      filter: blur(13px);
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .build-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      text-align: center;
+    }
+
+    .build-panel h2 {
+      font-size: clamp(30px, 8vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--ink);
+      margin: 0 0 20px;
+    }
+
+    .build-note {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--yellow);
+      padding: 11px 20px;
+    }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4384314147708100"
      crossorigin="anonymous"></script>
@@ -1292,6 +1334,8 @@
 
   </div>
 </nav>
+
+<div class="build-content">
 
 <!-- HERO AGENCIA -->
 
@@ -1451,7 +1495,23 @@
 </section>
 
 
-<!-- FOOTER -->
+</div>
+
+<div class="build-overlay">
+
+  <div class="build-panel">
+
+    <h2>No clickies acá</h2>
+
+    <span class="build-note">
+      En construcción
+    </span>
+
+  </div>
+
+</div>
+
+  <!-- FOOTER -->
 
 <footer>
 
