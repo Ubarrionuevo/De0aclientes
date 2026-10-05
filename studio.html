@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>De 0 a Clientes - Agencia</title>
-<meta name="description" content="De 0 a Clientes Agencia: contenido que hace que más personas conozcan tu empresa. Ayudamos a empresas y founders a llegar a más personas mediante contenido y distribución.">
+<title>No clickies acá | De 0 a Clientes</title>
+<meta name="description" content="No clickies acá: playbook para conseguir tus primeros clientes y todo lo que aprendí para generar $$$ por internet.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230C0C0C'/%3E%3Ccircle cx='43' cy='43' r='15' fill='%23FFD400'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1256,47 +1256,247 @@
     }
 }
 
-    /* ── EN CONSTRUCCIÓN ── */
+    /* ── OFERTAS ── */
 
-    .build-content {
-      filter: blur(13px);
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-select: none;
+    .offers {
+      background: var(--white);
     }
 
-    .build-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 400;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: rgba(255,255,255,.72);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      text-align: center;
+    .offer {
+      padding: 56px 0;
     }
 
-    .build-panel h2 {
-      font-size: clamp(30px, 8vw, 52px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      color: var(--ink);
-      margin: 0 0 20px;
+    .offer + .offer {
+      border-top: 1px solid #ECECEC;
     }
 
-    .build-note {
+    .offer-card {
+      border: 1px solid #ECECEC;
+      padding: 30px 24px;
+      text-align: left;
+      transition: border-color .3s ease, box-shadow .3s ease;
+    }
+
+    .offer-card:hover {
+      border-color: var(--yellow);
+      box-shadow: 0 12px 26px rgba(12,12,12,.08);
+    }
+
+    .offer-kicker {
       display: inline-block;
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--ink);
       background: var(--yellow);
-      padding: 11px 20px;
+      padding: 6px 9px;
+      margin-bottom: 18px;
+    }
+
+
+    .offer-card h2 {
+      font-size: clamp(24px, 6vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+    }
+
+    .offer-desc {
+      margin-top: 14px;
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.65;
+      max-width: 44ch;
+    }
+
+    .offer-price {
+      margin-top: 24px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .offer-price .amount {
+      font-size: clamp(28px, 7vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .offer-price .amount em {
+      font-style: normal;
+      background: linear-gradient(180deg, transparent 0 62%, var(--yellow) 62% 100%);
+      padding: 0 4px;
+    }
+
+    .offer-price .per {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .offer-action {
+      margin-top: 28px;
+      border: 1px solid #ECECEC;
+      padding: 24px;
+    }
+
+    .offer-form {
+      border: none;
+      padding: 0;
+    }
+
+    .offer-row {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .offer-form .offer-input {
+      flex: 1 1 auto;
+      min-width: 0;
+      border-right: none;
+    }
+
+    .offer-form .offer-outline {
+      flex: 0 0 auto;
+      width: auto;
+      padding-left: 26px;
+      padding-right: 26px;
+      border-left: 1px solid var(--ink);
+    }
+
+    @media (max-width: 520px) {
+      .offer-row {
+        flex-wrap: wrap;
+      }
+
+      .offer-form .offer-outline {
+        flex: 1 0 100%;
+        margin-top: 10px;
+      }
+    }
+
+    .offer-msg {
+      display: none;
+      margin-top: 16px;
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    .offer-msg[data-fs-active] {
+      display: block;
+    }
+
+    .offer-msg.ok {
+      background: var(--yellow);
+      color: var(--ink);
+      font-weight: 600;
+      padding: 13px 15px;
+    }
+
+    .offer-msg.bad {
+      color: #B3261E;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .offer-field-error {
+      display: none;
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: #B3261E;
+    }
+
+    .offer-field-error[data-fs-active] {
+      display: block;
+    }
+
+    .offer-input[aria-invalid="true"] {
+      border-color: #B3261E;
+    }
+
+
+    .offer-hint {
+      display: block;
+      font-size: 13.5px;
+      color: var(--ink-2);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .offer-input {
+      width: 100%;
+      font-family: var(--serif);
+      font-size: 15.5px;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid #E2E2E2;
+      border-radius: 0;
+      padding: 15px 16px;
+      outline: none;
+      transition: border-color .2s ease;
+    }
+
+    .offer-input::placeholder {
+      color: var(--ink-3);
+    }
+
+    .offer-input:focus {
+      border-color: var(--ink);
+    }
+
+.offer-action .btn-main {
+      width: 100%;
+      max-width: none;
+    }
+
+    .offer-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: none;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 17px 28px;
+      cursor: pointer;
+      line-height: 1;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    .offer-outline:hover {
+      background: var(--ink);
+      color: var(--yellow);
+    }
+
+@media (min-width: 721px) {
+      .offer {
+        padding: clamp(64px, 9vw, 110px) 0;
+      }
+
+      .offer-card {
+        padding: clamp(36px, 4.5vw, 52px);
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        gap: clamp(32px, 4vw, 60px);
+        align-items: center;
+      }
+
+      .offer-desc {
+        font-size: 16px;
+      }
+
+    .offer-action {
+        margin-top: 0;
+        padding: clamp(24px, 2.5vw, 32px);
+      }
     }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4384314147708100"
@@ -1317,7 +1517,7 @@
 
 <div class="nav-links">
       <a href="index.html" class="nav-link">Media</a>
-      <a href="studio.html" class="nav-link active">Agencia</a>
+      <a href="studio.html" class="nav-link active">No clickies acá</a>
     </div>
 
     <a
@@ -1335,182 +1535,136 @@
   </div>
 </nav>
 
-<div class="build-content">
+<!-- OFERTAS -->
 
-<!-- HERO AGENCIA -->
+<div class="offers">
 
-<section class="studio-hero">
+  <section class="offer" id="playbook">
 
-  <div class="container">
+    <div class="container">
 
-    <span class="label reveal">
-      Agencia · De 0 a Clientes
-    </span>
+      <article class="offer-card reveal">
 
-    <h1 class="reveal d1">
-      Contenido que hace que más personas conozcan tu empresa.
-    </h1>
+        <div class="offer-info">
 
-    <p class="sub reveal d2">
-      Ayudamos a empresas y founders a llegar a más personas mediante contenido y distribución.
-      Entendemos qué tiene para decir tu negocio, lo convertimos en contenido y lo distribuimos en los canales donde está tu audiencia.
-    </p>
+          <span class="offer-kicker">
+            Playbook
+          </span>
 
-    <div class="hero-pills reveal d3">
-      <span class="pill">Contenido</span>
-      <span class="pill-sep"></span>
-      <span class="pill">Distribución</span>
-    </div>
+          <h2>
+            Playbook: Cómo conseguir tus primeros clientes
+          </h2>
 
-  </div>
+          <p class="offer-desc">
+            Un playbook práctico para aprender a conseguir tus primeros clientes de forma orgánica.
+          </p>
 
-</section>
+          <div class="offer-price">
+            <span class="amount"><em>USD 15</em></span>
+            <span class="per">Precio único</span>
+          </div>
 
-
-<!-- PROPUESTA -->
-
-<section class="studio-outro">
-
-  <div class="container">
-
-<h2 class="reveal">
-      Tu empresa ya tiene algo que contar.
-    </h2>
-
-    <p class="chain reveal d1">
-      Tu conocimiento <span class="arr">→</span> contenido
-      <span class="arr">→</span> distribución
-      <span class="arr">→</span> atención
-      <span class="arr">→</span> oportunidades.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- SERVICIOS -->
-
-<section class="studio-serv" id="servicios">
-
-  <div class="container">
-
-    <span class="label reveal">
-      ¿Qué hacemos?
-    </span>
-
-    <div class="grid grid-2">
-
-      <article class="card mini reveal d1">
-
-        <div class="card-top">
-          <h3>Contenido</h3>
         </div>
 
-        <p>
-          Encontramos las historias, ideas, conocimientos y casos que vale la pena comunicar.
-          Los convertimos en:
-        </p>
+        <div class="offer-action">
 
-        <ul>
-          <li>Videos</li>
-          <li>Entrevistas</li>
-          <li>Posts</li>
-          <li>Artículos</li>
-          <li>Newsletters</li>
-          <li>Casos de estudio</li>
-          <li>Contenido para redes</li>
-        </ul>
+          <a
+            class="btn-main"
+            href="https://wa.me/5493834035119?text=Hola!%20Quiero%20comprar%20el%20Playbook%3A%20%C3%B3mo%20conseguir%20tus%20primeros%20clientes."
+            target="_blank"
+            rel="noopener"
+          >
+            Comprar el playbook
+          </a>
 
-      </article>
-
-      <article class="card mini reveal d2">
-
-        <div class="card-top">
-          <h3>Distribución</h3>
         </div>
 
-        <p>
-          Creamos un sistema para llevar ese contenido a donde está tu audiencia.
-        </p>
-
-        <ul>
-          <li>LinkedIn</li>
-          <li>X</li>
-          <li>YouTube</li>
-          <li>TikTok</li>
-          <li>SEO</li>
-          <li>Email</li>
-          <li>Comunidades</li>
-          <li>Otros canales relevantes para tu negocio</li>
-        </ul>
 
       </article>
 
     </div>
 
-    <div class="estrat reveal d1">
+  </section>
 
-      <h3>Estrategia</h3>
 
-      <p>
-        No todos los negocios necesitan estar en todos lados.
-      </p>
+  <section class="offer" id="comunidad">
 
-      <p>
-        Primero entendemos <strong>a quién necesitás llegar, dónde está y qué necesita escuchar</strong>.
-        Después vemos cómo hacerlo.
-      </p>
+    <div class="container">
+
+        <article class="offer-card reveal">
+
+        <div class="offer-info">
+
+          <h2>
+            Todo lo que me hizo generar $$$
+          </h2>
+
+          <p class="offer-desc">
+            Te cuento cada hack, playbook, consejo, experimento, detalle,
+            video y recurso que me ayudaron a ganar plata por internet.
+          </p>
+
+          <div class="offer-price">
+            <span class="amount"><em>USD 30</em></span>
+            <span class="per">por mes</span>
+          </div>
+
+        </div>
+
+        <form
+          class="offer-action offer-form"
+          action="https://formspree.io/f/moejvaky"
+          method="POST"
+          id="form-comunidad"
+        >
+
+          <label class="offer-hint" for="comunidad-email">
+            Dejá tu email y te enviamos el acceso.
+          </label>
+
+          <div class="offer-row">
+
+            <input
+              class="offer-input"
+              id="comunidad-email"
+              name="email"
+              type="email"
+              inputmode="email"
+              autocomplete="email"
+              placeholder="tu@email.com"
+              required
+              data-fs-field
+            >
+
+            <button
+              type="submit"
+              class="offer-outline"
+              data-fs-submit-btn
+            >
+              Quiero entrar
+            </button>
+
+          </div>
+
+          <span class="offer-field-error" data-fs-error="email"></span>
+
+          <span class="offer-msg ok" data-fs-success>
+            ¡Listo! Revisá tu email, te enviamos el acceso.
+          </span>
+
+          <span class="offer-msg bad" data-fs-error></span>
+
+        </form>
+
+
+      </article>
 
     </div>
 
-  </div>
-
-</section>
-
-
-<!-- BIG STATEMENT -->
-
-<section class="studio-outro">
-
-  <div class="container">
-
-<h2 class="reveal">
-      ¿Querés ganar más clientes <span class="hl">y gastar menos en publicidad?</span>
-    </h2>
-
-    <div class="studio-cta">
-      <a
-        href="https://wa.me/5493834035119"
-        class="btn-main"
-        target="_blank"
-        rel="noopener"
-      >
-        Contactate con nosotros
-      </a>
-    </div>
-
-  </div>
-
-</section>
-
+  </section>
 
 </div>
-
-<div class="build-overlay">
-
-  <div class="build-panel">
-
-    <h2>No clickies acá</h2>
-
-    <span class="build-note">
-      En construcción
-    </span>
-
-  </div>
-
-</div>
-
+  
   <!-- FOOTER -->
 
 <footer>
@@ -1589,5 +1743,19 @@
 
 
 
+<script>
+  /* ── Formspree ── */
+
+  window.formspree = window.formspree || function () {
+    (formspree.q = formspree.q || []).push(arguments);
+  };
+
+  formspree('initForm', {
+    formElement: '#form-comunidad',
+    formId: 'moejvaky',
+    useDefaultStyles: false
+  });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
