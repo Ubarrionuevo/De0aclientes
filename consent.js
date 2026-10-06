@@ -27,6 +27,8 @@
   var KEY = 'd0c_consent';
   var ADSENSE = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4384314147708100';
   var COOKIE_LIFETIME_DAYS = 180;
+  var started = false;
+  var escaped = false;
 
   var isEn = (document.documentElement.getAttribute('lang') || 'es').toLowerCase().indexOf('en') === 0;
   /* URL absoluta: no depende de la profundidad de la pagina, asi que funciona
@@ -130,6 +132,9 @@
   }
 
   function start() {
+    if (started) return;
+    started = true;
+
     var c = read();
     if (c === 'all') {
       loadAdsense();
