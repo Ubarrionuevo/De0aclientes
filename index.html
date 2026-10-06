@@ -683,155 +683,26 @@
     margin-bottom: 8px;
     padding-right: 20px;
   }
-  .modal .modal-sub {
+.modal .modal-sub {
     font-size: 14px;
     color: var(--ink-2);
     line-height: 1.6;
     margin-bottom: 22px;
   }
 
-  .modal form { display: flex; flex-direction: column; gap: 13px; }
-
-  .modal-email {
+  .modal-embed {
     width: 100%;
-    font-family: var(--serif);
-    font-size: 16px;
-    color: var(--ink);
-    background: var(--white);
-    border: 1px solid #E2E2E2;
-    border-radius: 0;
-    padding: 15px 18px;
-    outline: none;
-    transition: border-color 0.2s ease;
+    max-width: 480px;
+    margin: 0 auto;
   }
-  .modal-email::placeholder { color: var(--ink-3); }
-  .modal-email:focus { border-color: var(--ink); }
-  .modal-email.invalid { border-color: #E5484D; }
-
-  .modal-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  .modal-embed iframe {
+    display: block;
     width: 100%;
-    background: var(--yellow);
-    color: var(--ink);
-    font-family: var(--serif);
-    font-size: 15.5px;
-    font-weight: 700;
-    padding: 16px 24px;
-    border-radius: 0;
-    border: none;
-    cursor: pointer;
-    line-height: 1;
-    transition: background 0.25s ease, color 0.25s ease, transform 0.12s ease, opacity 0.2s ease;
+    height: 320px;
+    border: 1px solid #EEE;
+    background: #FFF;
+    margin: 0 auto;
   }
-  .modal-btn:hover:not(:disabled) { background: var(--ink); color: var(--white); }
-  .modal-btn:active:not(:disabled) { transform: scale(.98); }
-  .modal-btn:disabled { opacity: .6; cursor: default; }
-
-  .modal-status {
-    font-size: 13px;
-    line-height: 1.5;
-    min-height: 0;
-  }
-  .modal-status.success { color: #0E9F6E; font-weight: 600; }
-  .modal-status.error { color: #E5484D; font-weight: 500; }
-
-  /* spinner */
-  .spin-loader {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(12,12,12,.35);
-    border-top-color: var(--ink);
-    border-radius: 50%;
-    animation: loaderSpin 0.7s linear infinite;
-  }
-  .modal-btn:hover .spin-loader { border: 2px solid rgba(255,255,255,.35); border-top-color: var(--white); }
-  @keyframes loaderSpin { to { transform: rotate(360deg); } }
-
-  /* ── PANTALLA DE ÉXITO ── */
-  .success-screen {
-    position: fixed;
-    inset: 0;
-    z-index: 300;
-    background: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s cubic-bezier(.22,1,.36,1), visibility 0.4s;
-    text-align: center;
-    overflow-y: auto;
-  }
-  .success-screen.open { opacity: 1; visibility: visible; }
-
-  .success-inner { max-width: 600px; }
-
-  .success-badge {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: var(--yellow);
-    color: var(--ink);
-    font-size: 28px;
-    font-weight: 900;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 22px;
-    animation: badgePop 0.5s cubic-bezier(.22,1,.36,1);
-  }
-  @keyframes badgePop { 0%{ transform: scale(0);} 100%{ transform: scale(1);} }
-
-  .success-screen .label { justify-content: center; margin-bottom: 16px; }
-
-  .success-title {
-    font-size: 26px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin-bottom: 18px;
-  }
-  .success-title #successEmail { color: var(--ink-2); font-weight: 600; }
-
-  .success-text {
-    font-size: 15px;
-    color: var(--ink-2);
-    line-height: 1.7;
-    margin-bottom: 14px;
-  }
-  .success-text strong { color: var(--ink); font-weight: 700; }
-
-  .success-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-  .success-screen .btn-main { padding: 17px 30px; font-size: 15px; }
-
-  .success-social {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink);
-    padding: 6px;
-  }
-  .success-social span {
-    color: var(--ink-2);
-    font-weight: 500;
-    position: relative;
-    text-decoration: underline;
-    text-decoration-color: var(--yellow);
-    text-decoration-thickness: 3px;
-    text-underline-offset: 4px;
-  }
-  .success-social:hover { opacity: .8; }
 
   /* ================================================================
      BREAKPOINT ≥ 721px  (tablet / desktop)
@@ -881,19 +752,10 @@
     .footer-links a { font-size: 13px; }
     .footer-copy { font-size: 12.5px; }
 
-    .modal { padding: clamp(28px, 5vw, 40px); }
+.modal { padding: clamp(28px, 5vw, 40px); }
     .modal h3 { font-size: 26px; }
     .modal .modal-sub { font-size: 14.5px; margin-bottom: 26px; }
-    .modal form { gap: 14px; }
-    .modal-email { padding: 16px 18px; }
-    .modal-btn { font-size: 16px; padding: 17px 24px; }
-
-    .success-screen { padding: clamp(24px, 5vw, 48px); }
-    .success-badge { width: 64px; height: 64px; font-size: 30px; margin-bottom: 26px; }
-    .success-screen .label { margin-bottom: 18px; }
-    .success-title { font-size: clamp(28px, 4vw, 40px); margin-bottom: 22px; }
-    .success-text { font-size: 15.5px; }
-    .success-screen .btn-main { padding: 18px 34px; font-size: 16px; }
+    .modal-embed iframe { height: 340px; }
   }
   .marquee-group span {
     font-size: 12px;
@@ -949,17 +811,24 @@
 
 
 /* barra de consentimiento de cookies */
-.cookie-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: var(--ink); color: var(--white); border-top: 2px solid var(--yellow); }
-.cookie-bar-inner { max-width: 1080px; margin: 0 auto; padding: 18px clamp(22px, 5vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-.cookie-bar-text { font-size: 13px; line-height: 1.55; color: #D4D4D4; max-width: 640px; }
-.cookie-bar-text strong { display: block; color: var(--white); font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+.cookie-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: var(--ink); color: var(--white); border-top: 1px solid var(--yellow); }
+.cookie-bar-inner { max-width: 1080px; margin: 0 auto; padding: 10px clamp(16px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.cookie-bar-text { font-size: 12px; line-height: 1.5; color: #D4D4D4; max-width: 640px; }
+.cookie-bar-text strong { display: inline; color: var(--white); font-size: 12.5px; font-weight: 800; margin-bottom: 0; }
+.cookie-bar-text p { display: inline; }
 .cookie-bar-text a { color: var(--yellow); text-decoration: underline; }
-.cookie-bar-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
-.cookie-btn { font-family: var(--serif); font-size: 13.5px; font-weight: 700; padding: 12px 20px; border-radius: 0; cursor: pointer; border: 1px solid transparent; line-height: 1; white-space: nowrap; }
+.cookie-bar-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+.cookie-btn { font-family: var(--serif); font-size: 12.5px; font-weight: 700; padding: 9px 14px; border-radius: 0; cursor: pointer; border: 1px solid transparent; line-height: 1; white-space: nowrap; }
 .cookie-btn-accept { background: var(--yellow); color: var(--ink); }
 .cookie-btn-accept:hover { background: var(--white); }
 .cookie-btn-reject { background: transparent; color: var(--white); border-color: #4D4D4D; }
 .cookie-btn-reject:hover { border-color: var(--yellow); color: var(--yellow); }
+
+@media (max-width: 720px) {
+  .cookie-bar-inner { flex-direction: column; align-items: stretch; gap: 8px; padding: 12px 14px; }
+  .cookie-bar-actions { width: 100%; }
+  .cookie-bar-actions .cookie-btn { flex: 1; text-align: center; }
+}
 
 /* enlaces legales del pie */
 .footer-legal { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; justify-content: center; }
@@ -1146,45 +1015,8 @@
     <p class="modal-sub">Recibí De 0 a Clientes directamente en tu email.</p>
 
     
-    <form id="subscribeForm" novalidate>
-      <input class="modal-email" type="email" id="subscribeEmail" name="email" placeholder="tu@email.com" autocomplete="email" required>
-      <button type="submit" class="modal-btn" id="modalSubmitBtn">
-        <span class="btn-label">Suscribirme gratis</span>
-        <span class="spin-loader" style="display:none;"></span>
-      </button>
-    </form>
-
-    <p class="modal-status" id="modalStatus" role="status" aria-live="polite"></p>
-  </div>
-</div>
-
-<!-- PANTALLA DE ÉXITO (post-suscripción) -->
-<div class="success-screen" id="successScreen">
-  <div class="success-inner">
-    <span class="success-badge">✓</span>
-    <span class="label">Suscripción confirmada</span>
-    <h2 class="success-title">¡Bienvenido, <span id="successEmail"></span>!</h2>
-    <p class="success-text">
-      Lo que acabas de hacer es un antes y un después. <strong>La acción que tomaste confirma que vas en serio,
-      que querés que tu proyecto funcione y vivir de ello.</strong>
-    </p>
-    <p class="success-text">
-      A partir de mañana te va a llegar un email con algún consejo, algún dato puntual, playbook o extracto
-      de una charla que tuve con un founder amigo.
-    </p>
-    <p class="success-text">
-      <strong>Como sé que vas en serio, lo único que pido es que pongas en práctica todo y te quedes con lo que
-      funciona. Solo eso. Te veo del otro lado.</strong>
-    </p>
-
-    <div class="success-actions">
-      <a href="https://de0aclientes.substack.com" class="btn-main" target="_blank" rel="noopener">
-        Leer artículos en Substack
-        <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg>
-      </a>
-      <a href="https://x.com/titobarri0nuevo" class="success-social" target="_blank" rel="noopener">
-        Seguime en X
-      </a>
+<div class="modal-embed">
+      <iframe src="https://de0aclientes.substack.com/embed" width="480" height="320" style="border: 1px solid #EEE; background: white" frameborder="0" scrolling="no" title="Suscribirse a De 0 a Clientes en Substack" loading="lazy"></iframe>
     </div>
   </div>
 </div>
@@ -1241,29 +1073,11 @@
   if (chips.length) chipObserver.observe(chips[0].parentElement);
 
 
-  // ══════════════════════════════════════════════════════════════════
-  //  CONFIG FORMSPREE
-  //  1) Creá un form en https://formspree.io
-  //  2) Copiá tu URL (termina en /f/xxxx) y pegalá abajo en FORMSPREE_URL
-  // ══════════════════════════════════════════════════════════════════
-  const FORMSPREE_URL = 'https://formspree.io/f/moeqqowz';
-  // ══════════════════════════════════════════════════════════════════
-
+// ── Modal suscripción (embed Substack) ──
   const modalOverlay = document.getElementById('subscribeModal');
-  const modalForm = document.getElementById('subscribeForm');
-  const emailInput = document.getElementById('subscribeEmail');
-  const submitBtn = document.getElementById('modalSubmitBtn');
-  const btnLabel = submitBtn.querySelector('.btn-label');
-  const btnLoader = submitBtn.querySelector('.spin-loader');
-  const statusEl = document.getElementById('modalStatus');
 
   function openModal() {
-    statusEl.textContent = '';
-    statusEl.className = 'modal-status';
-    emailInput.classList.remove('invalid');
-    emailInput.value = '';
     modalOverlay.classList.add('open');
-    setTimeout(() => emailInput.focus(), 350);
     document.body.style.overflow = 'hidden';
   }
   function closeModal() {
@@ -1271,67 +1085,11 @@
     document.body.style.overflow = '';
   }
 
-  function showSuccess(email) {
-    document.getElementById('successEmail').textContent = email;
-    document.getElementById('successScreen').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function setLoading(on) {
-    submitBtn.disabled = on;
-    btnLabel.textContent = on ? 'Enviando…' : 'Suscribirme gratis';
-    btnLoader.style.display = on ? '' : 'none';
-  }
-
-  function isValidEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  }
-
   document.querySelectorAll('.js-open-modal').forEach(b => b.addEventListener('click', openModal));
   document.querySelectorAll('.js-close-modal').forEach(b => b.addEventListener('click', closeModal));
 
   modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-  modalForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    statusEl.textContent = '';
-    statusEl.className = 'modal-status';
-    emailInput.classList.remove('invalid');
-
-    const email = emailInput.value.trim();
-
-    if (!isValidEmail(email)) {
-      emailInput.classList.add('invalid');
-      statusEl.className = 'modal-status error';
-      statusEl.textContent = 'Ingresá un email válido.';
-      return;
-    }
-
-    setLoading(true);
-
-    const body = new URLSearchParams();
-    body.append('email', email);
-
-    try {
-      const res = await fetch(FORMSPREE_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email: email })
-      });
-      const data = await res.json();
-      if (!res.ok || data.errors) {
-        throw new Error('Formspree error');
-      }
-      closeModal();
-      showSuccess(email);
-    } catch (err) {
-      statusEl.className = 'modal-status error';
-      statusEl.textContent = 'Hubo un error al enviar. Intentá de nuevo.';
-    } finally {
-      setLoading(false);
-    }
-  });
 </script>
 
 

@@ -1118,17 +1118,24 @@
 
 
 /* barra de consentimiento de cookies */
-.cookie-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: var(--ink); color: var(--white); border-top: 2px solid var(--yellow); }
-.cookie-bar-inner { max-width: 1080px; margin: 0 auto; padding: 18px clamp(22px, 5vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-.cookie-bar-text { font-size: 13px; line-height: 1.55; color: #D4D4D4; max-width: 640px; }
-.cookie-bar-text strong { display: block; color: var(--white); font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+.cookie-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: var(--ink); color: var(--white); border-top: 1px solid var(--yellow); }
+.cookie-bar-inner { max-width: 1080px; margin: 0 auto; padding: 10px clamp(16px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.cookie-bar-text { font-size: 12px; line-height: 1.5; color: #D4D4D4; max-width: 640px; }
+.cookie-bar-text strong { display: inline; color: var(--white); font-size: 12.5px; font-weight: 800; margin-bottom: 0; }
+.cookie-bar-text p { display: inline; }
 .cookie-bar-text a { color: var(--yellow); text-decoration: underline; }
-.cookie-bar-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
-.cookie-btn { font-family: var(--serif); font-size: 13.5px; font-weight: 700; padding: 12px 20px; border-radius: 0; cursor: pointer; border: 1px solid transparent; line-height: 1; white-space: nowrap; }
+.cookie-bar-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+.cookie-btn { font-family: var(--serif); font-size: 12.5px; font-weight: 700; padding: 9px 14px; border-radius: 0; cursor: pointer; border: 1px solid transparent; line-height: 1; white-space: nowrap; }
 .cookie-btn-accept { background: var(--yellow); color: var(--ink); }
 .cookie-btn-accept:hover { background: var(--white); }
 .cookie-btn-reject { background: transparent; color: var(--white); border-color: #4D4D4D; }
 .cookie-btn-reject:hover { border-color: var(--yellow); color: var(--yellow); }
+
+@media (max-width: 720px) {
+  .cookie-bar-inner { flex-direction: column; align-items: stretch; gap: 8px; padding: 12px 14px; }
+  .cookie-bar-actions { width: 100%; }
+  .cookie-bar-actions .cookie-btn { flex: 1; text-align: center; }
+}
 
 /* enlaces legales del pie */
 .footer-legal { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; justify-content: center; }
