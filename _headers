@@ -1,0 +1,17 @@
+# De 0 a Clientes - headers Netlify
+# Cabeceras conservadoras: no se agrega CSP (podria bloquear Google Fonts,
+# Substack o AdSense). Solo mejoras seguras.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Assets estaticos con cache larga
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=604800
