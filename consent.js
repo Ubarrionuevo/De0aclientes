@@ -33,7 +33,7 @@
   var isEn = (document.documentElement.getAttribute('lang') || 'es').toLowerCase().indexOf('en') === 0;
   /* URL absoluta: no depende de la profundidad de la pagina, asi que funciona
      igual desde /, /en/ o cualquier futuro subdirectorio. */
-  var privacyUrl = 'https://de0aclientes.com/' + (isEn ? 'en/' : '') + 'privacy.html';
+  var privacyUrl = 'https://de0aclientes.com.ar/' + (isEn ? 'en/' : '') + 'privacy';
 
   var T = isEn ? {
     title: 'We use cookies',
