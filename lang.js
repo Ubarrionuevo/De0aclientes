@@ -37,17 +37,14 @@
   };
   var targetHref = MAP[path];
 
-  var alreadyChosen = null;
-  try { stored = window.localStorage.getItem(KEY); } catch (e) {}
-  if (stored) return;
+  var chosen = null;
+  var seenThisSession = false;
+  try {
+    chosen = window.localStorage.getItem(KEY);
+    seenThisSession = window.sessionStorage.getItem('d0c_lang_seen') === '1';
+  } catch (e) {}
+  if (chosen || seenThisSession) return;
   if (!targetHref) return;
-
-  var isEn = currentIsEn();
-  var targetLang = isEn ? 'es' : 'en';
-  var msg = currentIsEn()
-    ? 'También podés leer este sitio en español.'
-    : 'You can also read this site in English.';
-  var cta = currentIsEn() ? 'Ver en español' : 'View in English';
 
   var style = document.createElement('style');
   style.textContent =
@@ -96,6 +93,7 @@
   wrap.appendChild(close);
 
   function show() {
+    try { window.sessionStorage.setItem('d0c_lang_seen', '1'); } catch (e) {}
     document.body.appendChild(wrap);
     requestAnimationFrame(function () { wrap.classList.add('is-visible'); });
   }
