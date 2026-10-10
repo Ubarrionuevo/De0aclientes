@@ -845,7 +845,7 @@
     <a href="/" class="wordmark">De <span class="zero">0</span> a Clientes</a>
     <div class="nav-links">
       <a href="/" class="nav-link active">Media</a>
-      <a href="/studio" class="nav-link">No clickies acá</a>
+      <a href="/studio" class="nav-link">Studio</a>
       <a href="/en/" class="nav-lang" hreflang="en" lang="en">EN</a>
     </div>
     <a href="https://x.com/titobarri0nuevo" class="nav-x" title="X / Twitter" target="_blank" rel="noopener">
@@ -878,7 +878,7 @@
 <!-- PRUEBA SOCIAL -->
 <section class="social-proof">
   <div class="container reveal">
-    <div class="counter"><span id="counter">0</span><span class="plus">+</span></div>
+    <div class="counter"><span id="counter">500</span><span class="plus">+</span></div>
     <p class="sp-countries-label">Usuarios de la comunidad en <b>14</b> países</p>
   </div>
   <div class="chips" id="chips">
@@ -939,7 +939,7 @@
 <section class="final-cta" id="suscribirse">
   <div class="container">
     <span class="label reveal">El ecosistema De 0 a Clientes</span>
-    <h2 class="reveal d1">Únete a los <span class="hl">500+</span> que ya consiguen clientes.</h2>
+    <h2 class="reveal d1">Sumate a los <span class="hl">500+</span> que ya consiguen clientes.</h2>
     <p class="perks reveal d2"><strong>Último aviso:</strong> te voy a incentivar a conseguir clientes todos los días.</p>
     <button type="button" class="btn-main reveal d3 js-open-modal">
       Suscribirme gratis
@@ -1056,7 +1056,12 @@
       }
     });
   }, { threshold: 0.4 });
-  counterObserver.observe(counterEl);
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (counterEl && !reduceMotion) {
+    counterObserver.observe(counterEl);
+  } else if (counterEl) {
+    counterEl.textContent = 500;
+  }
 
   // ── Stagger de chips ──
   const chips = document.querySelectorAll('.chip');
@@ -1093,6 +1098,7 @@
 </script>
 
 
+<script src="lang.js" defer></script>
 <script src="consent.js" defer></script>
 </body>
 </html>

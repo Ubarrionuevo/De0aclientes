@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contacto | De 0 a Clientes</title>
-<meta name="description" content="Escríbenos por WhatsApp o X. Respondemos en menos de 24 horas hábiles las dudas sobre De 0 a Clientes y sus productos.">
+<meta name="description" content="Escribinos por WhatsApp o X. Respondemos en menos de 24 horas hábiles las dudas sobre De 0 a Clientes y sus productos.">
 <link rel="canonical" href="https://de0aclientes.com.ar/contact">
 <link rel="alternate" hreflang="es" href="https://de0aclientes.com.ar/contact">
 <link rel="alternate" hreflang="en" href="https://de0aclientes.com.ar/en/contact">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="De 0 a Clientes">
 <meta property="og:title" content="Contacto | De 0 a Clientes">
-<meta property="og:description" content="Escríbenos por WhatsApp o X. Respondemos en menos de 24 horas hábiles las dudas sobre De 0 a Clientes y sus productos.">
+<meta property="og:description" content="Escribinos por WhatsApp o X. Respondemos en menos de 24 horas hábiles las dudas sobre De 0 a Clientes y sus productos.">
 <meta property="og:url" content="https://de0aclientes.com.ar/contact">
 <meta property="og:locale" content="es_LA">
 <meta property="og:locale:alternate" content="en_US">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@titobarri0nuevo">
 <meta name="twitter:title" content="Contacto | De 0 a Clientes">
-<meta name="twitter:description" content="Escríbenos por WhatsApp o X. Respondemos en menos de 24 horas hábiles las dudas sobre De 0 a Clientes y sus productos.">
+<meta name="twitter:description" content="Escribinos por WhatsApp o X. Respondemos en menos de 24 horas hábiles las dudas sobre De 0 a Clientes y sus productos.">
 <meta name="twitter:image" content="https://de0aclientes.com.ar/og-home.png">
 <meta name="twitter:image:alt" content="Contacto | De 0 a Clientes">
 <script type="application/ld+json">
@@ -768,7 +768,7 @@
     <a href="/" class="wordmark">De <span class="zero">0</span> a Clientes</a>
     <div class="nav-links">
       <a href="/" class="nav-link active">Media</a>
-      <a href="/studio" class="nav-link">No clickies acá</a>
+      <a href="/studio" class="nav-link">Studio</a>
       <a href="/en/contact" class="nav-lang" hreflang="en" lang="en">EN</a>
     </div>
     <a href="https://x.com/titobarri0nuevo" class="nav-x" title="X / Twitter" target="_blank" rel="noopener">
@@ -788,7 +788,7 @@
     </nav>
 
     <h1>Contacto</h1>
-    <p style="max-width:620px;margin:0 auto;color:var(--ink-2);font-size:clamp(16px,2.2vw,18px);line-height:1.6">Escribinos y te respondemos. Si tenés una duda sobre un producto, un pago o querés proposer una colaboración, este es el lugar.</p>
+    <p style="max-width:620px;margin:0 auto;color:var(--ink-2);font-size:clamp(16px,2.2vw,18px);line-height:1.6">Escribinos y te respondemos. Si tenés una duda sobre un producto, un pago o querés proponer una colaboración, este es el lugar.</p>
 
     <div class="contact-actions">
       <a class="btn-main" href="https://wa.me/5493834035119" target="_blank" rel="noopener">
@@ -876,7 +876,12 @@
       }
     });
   }, { threshold: 0.4 });
-  counterObserver.observe(counterEl);
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (counterEl && !reduceMotion) {
+    counterObserver.observe(counterEl);
+  } else if (counterEl) {
+    counterEl.textContent = 500;
+  }
 
   // ── Stagger de chips ──
   const chips = document.querySelectorAll('.chip');
@@ -894,6 +899,7 @@ if (chips.length) chipObserver.observe(chips[0].parentElement);
 </script>
 
 
+<script src="lang.js" defer></script>
 <script src="consent.js" defer></script>
 </body>
 </html>

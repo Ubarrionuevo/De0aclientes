@@ -861,7 +861,7 @@
     <a href="/en/" class="wordmark">De <span class="zero">0</span> a Clientes</a>
     <div class="nav-links">
       <a href="/en/" class="nav-link active">Media</a>
-      <a href="/en/studio" class="nav-link">Don't click here</a>
+      <a href="/en/studio" class="nav-link">Studio</a>
       <a href="/" class="nav-lang" hreflang="es" lang="es">ES</a>
     </div>
     <a href="https://x.com/titobarri0nuevo" class="nav-x" title="X / Twitter" target="_blank" rel="noopener">
@@ -894,7 +894,7 @@
 <!-- PRUEBA SOCIAL -->
 <section class="social-proof">
   <div class="container reveal">
-    <div class="counter"><span id="counter">0</span><span class="plus">+</span></div>
+    <div class="counter"><span id="counter">500</span><span class="plus">+</span></div>
     <p class="sp-countries-label">Community members in <b>14</b> countries</p>
   </div>
   <div class="chips" id="chips">
@@ -927,11 +927,11 @@
       <span class="article-num">01</span>
       <div class="article-body">
         <span class="article-cat">Sales</span>
-        <h3><a href="https://de0aclientes.substack.com/p/vender-es-la-skill-mas-importante?r=4excrn&utm_campaign=post-expanded-share&utm_medium=web" target="_blank" rel="noopener">Selling is the most important skill and you are underestimating it</a></h3>
+        <h3><a href="https://de0aclientes.substack.com/p/vender-es-la-skill-mas-importante?r=4excrn&utm_campaign=post-expanded-share&utm_medium=web" hreflang="es" target="_blank" rel="noopener">Selling is the most important skill and you are underestimating it</a></h3>
         <p class="article-excerpt">You learn to code, design, write. But nobody teaches you to sell, and that is the only thing that turns talent into income. If you can sell, work never runs out; if you cannot, the best portfolio in the world will not save you.</p>
         <div class="article-meta">
-          <span>No. 23 · 6 min</span>
-          <a class="read-link" href="https://de0aclientes.substack.com/p/vender-es-la-skill-mas-importante?r=4excrn&utm_campaign=post-expanded-share&utm_medium=web" target="_blank" rel="noopener">Read <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg></a>
+          <span>No. 23 · 6 min · ES</span>
+          <a class="read-link" href="https://de0aclientes.substack.com/p/vender-es-la-skill-mas-importante?r=4excrn&utm_campaign=post-expanded-share&utm_medium=web" hreflang="es" target="_blank" rel="noopener">Read <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg></a>
         </div>
       </div>
     </article>
@@ -940,11 +940,11 @@
       <span class="article-num">02</span>
       <div class="article-body">
         <span class="article-cat">Real case</span>
-        <h3><a href="https://de0aclientes.substack.com/p/como-pase-de-0-a-10-clientes-desde?r=4excrn&utm_campaign=post-expanded-share&utm_medium=web" target="_blank" rel="noopener">How I went from 0 to 10+ clients from a remote province with no "marketing"</a></h3>
+        <h3><a href="https://de0aclientes.substack.com/p/como-pase-de-0-a-10-clientes-desde?r=4excrn&utm_campaign=post-expanded-share&utm_medium=web" hreflang="es" target="_blank" rel="noopener">How I went from 0 to 10+ clients from a remote province with no "marketing"</a></h3>
         <p class="article-excerpt">No agency, no budget, no connections. That is how I landed my first ten clients while working remotely from a province nobody could place on the map. No magic: a system, a clear offer, and consistency.</p>
         <div class="article-meta">
-          <span>No. 22 · 8 min</span>
-          <a class="read-link" href="https://de0aclientes.substack.com/p/como-pase-de-0-a-10-clientes-desde?r=4excrn&utm_campaign=post-expanded-share&utm_medium=web" target="_blank" rel="noopener">Read <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg></a>
+          <span>No. 22 · 8 min · ES</span>
+          <a class="read-link" href="https://de0aclientes.substack.com/p/como-pase-de-0-a-10-clientes-desde?r=4excrn&utm_campaign=post-expanded-share&utm_medium=web" hreflang="es" target="_blank" rel="noopener">Read <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg></a>
         </div>
       </div>
     </article>
@@ -1086,7 +1086,12 @@
       }
     });
   }, { threshold: 0.4 });
-  counterObserver.observe(counterEl);
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (counterEl && !reduceMotion) {
+    counterObserver.observe(counterEl);
+  } else if (counterEl) {
+    counterEl.textContent = 500;
+  }
 
   // ── Stagger de chips ──
   const chips = document.querySelectorAll('.chip');
@@ -1123,6 +1128,7 @@
 </script>
 
 
+<script src="../lang.js" defer></script>
 <script src="../consent.js" defer></script>
 </body>
 </html>
