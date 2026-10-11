@@ -204,6 +204,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-2);
+    margin: 0;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -903,7 +904,7 @@
 <section class="articles" id="articulos">
   <div class="container">
     <div class="articles-head reveal">
-      <span class="label">Artículos recientes</span>
+      <h2 class="label">Artículos recientes</h2>
       <a href="https://de0aclientes.substack.com" class="see-all" target="_blank" rel="noopener">Ver todos →</a>
     </div>
 
@@ -1016,7 +1017,7 @@
 
     
 <div class="modal-embed">
-      <iframe src="https://de0aclientes.substack.com/embed" width="480" height="320" style="border: 1px solid #EEE; background: white" frameborder="0" scrolling="no" title="Suscribirse a De 0 a Clientes en Substack" loading="lazy"></iframe>
+      <iframe data-src="https://de0aclientes.substack.com/embed" width="480" height="320" style="border: 1px solid #EEE; background: white" frameborder="0" scrolling="no" title="Suscribirse a De 0 a Clientes en Substack" loading="lazy"></iframe>
     </div>
   </div>
 </div>
@@ -1082,6 +1083,8 @@
   const modalOverlay = document.getElementById('subscribeModal');
 
   function openModal() {
+    const frame = modalOverlay.querySelector('iframe[data-src]');
+    if (frame && !frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src'));
     modalOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
