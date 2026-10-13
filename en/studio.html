@@ -151,7 +151,7 @@
                                                "name":  "How do I buy?",
                                                "acceptedAnswer":  {
                                                                       "@type":  "Answer",
-                                                                      "text":  "You message me on WhatsApp, we arrange the one-time payment of USD 15 and we send you access by email."
+                                                                      "text":  "You leave your email in the form, we arrange the one-time payment of USD 15 and we send you access by email."
                                                                   }
                                            },
                                            {
@@ -908,6 +908,34 @@
       max-width: none;
     }
 
+    .offer-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .offer-form-label {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--ink-2);
+    }
+
+    .offer-form-input {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid #D9D9D9;
+      border-radius: 0;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--ink);
+      background: var(--white);
+    }
+
+    .offer-form-input:focus {
+      outline: none;
+      border-color: var(--ink);
+    }
+
 @media (min-width: 721px) {
       .offer {
         padding: clamp(64px, 9vw, 110px) 0;
@@ -1054,14 +1082,13 @@
 
         <div class="offer-action">
 
-          <a
-            class="btn-main"
-            href="https://wa.me/5493834035119?text=Hi!%20I%20want%20to%20buy%20%22Do%20you%20know%20how%20to%20sell%3F%22%20for%20USD%2015."
-            target="_blank"
-            rel="noopener"
-          >
-            Buy on WhatsApp
-          </a>
+          <form class="offer-form" action="https://formspree.io/f/moejvaky" method="POST">
+            <label class="offer-form-label" for="buy-email">Leave your email and I'll send you the access.</label>
+            <input class="offer-form-input" id="buy-email" type="email" name="email" required autocomplete="email" inputmode="email" placeholder="you@email.com">
+            <input type="hidden" name="_subject" value="De 0 a Clientes - ebook purchase (USD 15)">
+            <input type="hidden" name="_gotcha" value="">
+            <button class="btn-main" type="submit">Buy for USD 15</button>
+          </form>
 
         </div>
 
@@ -1138,7 +1165,7 @@
     <details class="faq-item">
       <summary>How do I buy?</summary>
       <div class="faq-body">
-        <p>You message me on WhatsApp, we arrange the one-time payment of USD 15 and we send you access by email.</p>
+        <p>You leave your email in the form, we arrange the one-time payment of USD 15 and we send you access by email.</p>
       </div>
     </details>
 
